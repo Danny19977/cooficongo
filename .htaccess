@@ -1,0 +1,5 @@
+# Redirect old dashboard.html to dashboard.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^dashboard\.html$ dashboard.php [R=301,L]
+</IfModule>

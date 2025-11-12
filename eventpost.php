@@ -1,9 +1,10 @@
 <?php
-session_start();
+// Protect this page - redirect to login if not authenticated
+require_once __DIR__ . '/php/auth_check.php';
 require_once 'php/activitiesdisplay.php';
 
-// Get user role from session, default to 'Guest' if not logged in
-$userRole = $_SESSION['role'] ?? 'Guest';
+// Get user role from session
+$userRole = $_SESSION['role'] ?? 'User';
 
 // Fetch user profile picture if logged in
 $userProfilePic = 'assets/img/team/team-1.jpg'; // Default
@@ -63,6 +64,21 @@ if (isset($_SESSION['user_uuid'])) {
                         <li class="nav-item mb-2">
                             <a class="nav-link sidebar-link active" id="events-tab" href="event.php">
                                 <i class="bi bi-calendar-event me-2"></i> Events
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link sidebar-link" id="gallery-tab" href="gallerypost.php">
+                                <i class="bi bi-images me-2"></i> Gallery
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link sidebar-link" id="newsletters-tab" href="newsletters.php">
+                                <i class="bi bi-envelope-at me-2"></i> Newsletters
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link sidebar-link" id="contact-tab" href="contactview.php">
+                                <i class="bi bi-envelope-check me-2"></i> Contact Messages
                             </a>
                         </li>
                     </ul>

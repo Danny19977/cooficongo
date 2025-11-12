@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Gallery - CooFICongo</title>
+  <meta name="description" content="Explore our vibrant gallery showcasing community activities, events, and moments">
+  <meta name="keywords" content="gallery, photos, videos, community, events">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Gallery Hero Section */
+    .gallery-hero {
+      background: linear-gradient(135deg, #116530 0%, #2ea359 100%);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="white" fill-opacity="0.1"/></svg>');
+      animation: backgroundScroll 20s linear infinite;
+    }
+
+    @keyframes backgroundScroll {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(100px) translateY(100px); }
+    }
+
+    .gallery-hero h1 {
+      color: white;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s ease;
+    }
+
+    .gallery-hero p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.2rem;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    /* Filter Buttons */
+    .gallery-filters {
+      background: white;
+      padding: 2rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-filters.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .filter-btn {
+      padding: 12px 30px;
+      margin: 5px;
+      border: 2px solid #2ea359;
+      background: white;
+      color: #2ea359;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .filter-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: #2ea359;
+      transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .filter-btn:hover::before,
+    .filter-btn.active::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(46, 163, 89, 0.3);
+    }
+
+    .filter-count {
+      display: inline-block;
+      background: rgba(46, 163, 89, 0.1);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin-left: 5px;
+    }
+
+    /* Gallery Grid */
+    .gallery-container {
+      padding: 4rem 0;
+      min-height: 500px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: white;
+      animation: fadeInScale 0.6s ease both;
+    }
+
+    .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+    .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+    .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+    .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+    .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+    .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(46, 163, 89, 0.25);
+    }
+
+    .gallery-item-image {
+      position: relative;
+      width: 100%;
+      padding-top: 75%; /* 4:3 Aspect Ratio */
+      overflow: hidden;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    }
+
+    .gallery-item-image img,
+    .gallery-item-image video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover .gallery-item-image img,
+    .gallery-item:hover .gallery-item-image video {
+      transform: scale(1.15);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item-info {
+      color: white;
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-item-info {
+      transform: translateY(0);
+    }
+
+    .gallery-item-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .gallery-item-category {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .media-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.95);
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .media-badge.image {
+      color: #2ea359;
+    }
+
+    .media-badge.video {
+      color: #0066cc;
+    }
+
+    .gallery-item:hover .media-badge {
+      transform: scale(1.1);
+    }
+
+    .view-more-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      color: #2ea359;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      opacity: 0;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .gallery-item:hover .view-more-btn {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .view-more-btn:hover {
+      background: #2ea359;
+      color: white;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Album View */
+    .album-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .album-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(46, 163, 89, 0.25);
+    }
+
+    .album-cover {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .album-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .album-card:hover .album-cover img {
+      transform: scale(1.1);
+    }
+
+    .album-count {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.95);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .album-info {
+      padding: 25px;
+    }
+
+    .album-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 10px;
+    }
+
+    .album-stats {
+      display: flex;
+      gap: 20px;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .album-stat {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Loading State */
+    .gallery-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #2ea359;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    .empty-state i {
+      font-size: 5rem;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    .empty-state p {
+      color: #bbb;
+    }
+
+    /* Stats Bar */
+    .gallery-stats {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 30px 0;
+      margin-top: 4rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #2ea359;
+      margin-bottom: 10px;
+      animation: countUp 2s ease;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .gallery-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      .gallery-filters {
+        top: 60px;
+      }
+    }
+
+    /* Search Bar */
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 18px 60px 18px 25px;
+      border: 3px solid #e0e0e0;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #2ea359;
+      box-shadow: 0 5px 20px rgba(46, 163, 89, 0.2);
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #2ea359;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .search-btn:hover {
+      background: #116530;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="CooFICongo">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.php">Blog</a></li>
+          <li><a href="activity.php">Activities</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="gallery.html" class="active">Gallery</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="login.html">login</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+      <div class="container text-center position-relative">
+        <h1><i class="bi bi-images me-3"></i>Our Gallery</h1>
+        <p>Explore moments that tell our story - A visual journey through our community</p>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="gallery-filters">
+      <div class="container">
+        <div class="text-center">
+          <button class="filter-btn active" data-filter="all" onclick="filterGallery('all')">
+            <i class="bi bi-grid-3x3-gap me-2"></i>All <span class="filter-count" id="count-all">0</span>
+          </button>
+          <button class="filter-btn" data-filter="albums" onclick="setView('albums')">
+            <i class="bi bi-folder2-open me-2"></i>Albums <span class="filter-count" id="count-albums">0</span>
+          </button>
+          <button class="filter-btn" data-filter="images" onclick="filterGallery('images')">
+            <i class="bi bi-card-image me-2"></i>Images <span class="filter-count" id="count-images">0</span>
+          </button>
+          <button class="filter-btn" data-filter="videos" onclick="filterGallery('videos')">
+            <i class="bi bi-play-circle me-2"></i>Videos <span class="filter-count" id="count-videos">0</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <section class="gallery-container">
+      <div class="container">
+        
+        <!-- Search Bar -->
+        <div class="search-container" data-aos="fade-up">
+          <input type="text" class="search-input" placeholder="Search by category or album..." id="searchInput" oninput="searchGallery()">
+          <button class="search-btn"><i class="bi bi-search"></i></button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="gallery-loading">
+          <div class="spinner"></div>
+          <p style="color: #999; font-size: 1.1rem;">Loading gallery...</p>
+        </div>
+
+        <!-- Albums View -->
+        <div id="albumsView" class="row g-4" style="display: none;"></div>
+
+        <!-- Gallery Grid -->
+        <div id="galleryGrid" class="gallery-grid" style="display: none;"></div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" style="display: none;">
+          <i class="bi bi-images"></i>
+          <h3>No Gallery Items Yet</h3>
+          <p>Start building your gallery by uploading photos and videos.</p>
+          <p class="mt-2"><small class="text-muted">You can add as many or as few items as you want - no limits!</small></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="gallery-stats">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="stat-number" id="totalAlbums">0</div>
+              <div class="stat-label">Albums</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="stat-number" id="totalImages">0</div>
+              <div class="stat-label">Images</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="stat-number" id="totalVideos">0</div>
+              <div class="stat-label">Videos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4 stagger-animation">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">AgriCulture</span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>Paroisse Notre Dame du Perpétuel Secours, </p>
+              <p>Ignié centre PK47 département du Pool Congo Brazzaville</p>
+              <p class="mt-3"><strong>Phone:</strong> <span>+242 05 537 6788
+                </span></p>
+              <p class="mt-3"><strong>Phone:</strong> <span>
+                  +242 06 687 3182</span></p>
+              <p><strong>Email:</strong> <span>Coofi.apsf@gmail.com</span></p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="testimonials.html">Terms of service</a></li>
+              <!-- <li><a href="#">Privacy policy</a></li> -->
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nos Services</h4>
+            <ul>
+              <li><a href="#services">Plantation</a></li>
+              <li><a href="#services">Paillage</a></li>
+              <li><a href="#services">Labour</a></li>
+              <li><a href="#services">Semis & Récolte</a></li>
+              <li><a href="#services">Manioc Frais</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Hic solutasetp</h4>
+            <ul>
+              <li><a href="#">Molestiae accusamus iure</a></li>
+              <li><a href="#">Excepturi dignissimos</a></li>
+              <li><a href="#">Suscipit distinctio</a></li>
+              <li><a href="#">Dilecta</a></li>
+              <li><a href="#">Sit quas consectetur</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nobis illum</h4>
+            <ul>
+              <li><a href="#">Ipsam</a></li>
+              <li><a href="#">Laudantium dolorum</a></li>
+              <li><a href="#">Dinera</a></li>
+              <li><a href="#">Trodelas</a></li>
+              <li><a href="#">Flexo</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright text-center">
+      <div
+        class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+            Designed by <a href="https://freelancesoutions.vercel.app/">FREELANCE SOLUTIONS</a> Distributed by <a
+              href="https://freelancesoutions.vercel.app/">FS</a>
+          </div>
+        </div>
+
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href=""><i class="bi bi-twitter-x"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Gallery JS -->
+  <script>
+    let galleryData = [];
+    let currentView = 'all';
+    let currentFilter = 'all';
+
+    // Fetch gallery data from database
+    async function loadGallery() {
+      try {
+        const response = await fetch('php/gallerydisplay.php?format=json');
+        const data = await response.json();
+        
+        if (data.success) {
+          galleryData = data.galleries || [];
+          updateStats(data.stats);
+          displayGallery();
+        } else {
+          showEmptyState();
+        }
+      } catch (error) {
+        console.error('Error loading gallery:', error);
+        showEmptyState();
+      } finally {
+        hideLoading();
+      }
+    }
+
+    // Update statistics
+    function updateStats(stats) {
+      document.getElementById('totalAlbums').textContent = stats.total_galleries || 0;
+      document.getElementById('totalImages').textContent = stats.total_images || 0;
+      document.getElementById('totalVideos').textContent = stats.total_videos || 0;
+      
+      // Update filter counts
+      document.getElementById('count-all').textContent = (stats.total_images || 0) + (stats.total_videos || 0);
+      document.getElementById('count-albums').textContent = stats.total_galleries || 0;
+      document.getElementById('count-images').textContent = stats.total_images || 0;
+      document.getElementById('count-videos').textContent = stats.total_videos || 0;
+    }
+
+    // Display gallery based on current view
+    function displayGallery() {
+      if (currentView === 'albums') {
+        displayAlbums();
+      } else {
+        displayMediaItems();
+      }
+    }
+
+    // Display albums view
+    function displayAlbums() {
+      const albumsView = document.getElementById('albumsView');
+      const galleryGrid = document.getElementById('galleryGrid');
+      
+      albumsView.style.display = 'flex';
+      galleryGrid.style.display = 'none';
+      
+      if (galleryData.length === 0) {
+        showEmptyState();
+        return;
+      }
+      
+      albumsView.innerHTML = galleryData.map(album => {
+        // Count images and videos
+        let imageCount = 0;
+        let videoCount = 0;
+        let coverImage = 'assets/img/logo.png';
+        
+        for (let i = 1; i <= 10; i++) {
+          if (album[`image_${i}`] && album[`image_${i}`].trim() !== '') {
+            imageCount++;
+            if (coverImage === 'assets/img/logo.png') {
+              coverImage = album[`image_${i}`];
+            }
+          }
+          if (album[`video_${i}`] && album[`video_${i}`].trim() !== '') {
+            videoCount++;
+          }
+        }
+        
+        const totalItems = imageCount + videoCount;
+        
+        return `
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="album-card" onclick="viewAlbum('${album.uuid}')">
+              <div class="album-cover">
+                <img src="${coverImage}" alt="${album.category}" onerror="this.src='assets/img/logo.png'">
+                <div class="album-count">
+                  <i class="bi bi-collection me-1"></i>${totalItems} items
+                </div>
+              </div>
+              <div class="album-info">
+                <h3 class="album-title">${album.category}</h3>
+                <div class="album-stats">
+                  <div class="album-stat">
+                    <i class="bi bi-card-image text-success"></i>
+                    <span>${imageCount} photos</span>
+                  </div>
+                  <div class="album-stat">
+                    <i class="bi bi-play-circle text-primary"></i>
+                    <span>${videoCount} videos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      hideEmptyState();
+      AOS.refresh();
+    }
+
+    // Display media items (images and videos)
+    function displayMediaItems() {
+      const albumsView = document.getElementById('albumsView');
+      const galleryGrid = document.getElementById('galleryGrid');
+      
+      albumsView.style.display = 'none';
+      galleryGrid.style.display = 'grid';
+      
+      const mediaItems = [];
+      
+      // Extract all media items from albums
+      galleryData.forEach(album => {
+        // Add images (check for non-empty strings)
+        for (let i = 1; i <= 10; i++) {
+          if (album[`image_${i}`] && album[`image_${i}`].trim() !== '') {
+            mediaItems.push({
+              type: 'image',
+              src: album[`image_${i}`],
+              category: album.category,
+              album_uuid: album.uuid
+            });
+          }
+        }
+        
+        // Add videos (check for non-empty strings)
+        for (let i = 1; i <= 10; i++) {
+          if (album[`video_${i}`] && album[`video_${i}`].trim() !== '') {
+            mediaItems.push({
+              type: 'video',
+              src: album[`video_${i}`],
+              category: album.category,
+              album_uuid: album.uuid
+            });
+          }
+        }
+      });
+      
+      // Filter based on current filter
+      let filteredItems = mediaItems;
+      if (currentFilter === 'images') {
+        filteredItems = mediaItems.filter(item => item.type === 'image');
+      } else if (currentFilter === 'videos') {
+        filteredItems = mediaItems.filter(item => item.type === 'video');
+      }
+      
+      // Apply search filter
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      if (searchTerm) {
+        filteredItems = filteredItems.filter(item => 
+          item.category.toLowerCase().includes(searchTerm)
+        );
+      }
+      
+      if (filteredItems.length === 0) {
+        showEmptyState();
+        return;
+      }
+      
+      galleryGrid.innerHTML = filteredItems.map((item, index) => {
+        const isVideo = item.type === 'video';
+        const mediaContent = isVideo 
+          ? `<video src="${item.src}" preload="metadata"></video>`
+          : `<img src="${item.src}" alt="${item.category}" onerror="this.src='assets/img/logo.png'">`;
+        
+        return `
+          <div class="gallery-item" data-type="${item.type}">
+            <div class="gallery-item-image">
+              ${mediaContent}
+              <div class="media-badge ${item.type}">
+                <i class="bi bi-${isVideo ? 'play-circle-fill' : 'card-image'}"></i>
+                <span>${isVideo ? 'Video' : 'Photo'}</span>
+              </div>
+              <div class="gallery-item-overlay">
+                <div class="gallery-item-info">
+                  <div class="gallery-item-title">${item.category}</div>
+                  <div class="gallery-item-category">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Album</span>
+                  </div>
+                </div>
+              </div>
+              <button class="view-more-btn" onclick="openLightbox(${index}, ${JSON.stringify(filteredItems).replace(/"/g, '&quot;')})">
+                <i class="bi bi-arrows-fullscreen me-2"></i>View Full
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      hideEmptyState();
+      
+      // Initialize GLightbox for images
+      const lightbox = GLightbox({
+        selector: '.gallery-item-image'
+      });
+    }
+
+    // Filter gallery
+    function filterGallery(filter) {
+      currentFilter = filter;
+      
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.closest('.filter-btn').classList.add('active');
+      
+      if (filter === 'all') {
+        setView('all');
+      } else {
+        currentView = 'media';
+        displayMediaItems();
+      }
+    }
+
+    // Set view (albums or media)
+    function setView(view) {
+      currentView = view;
+      
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.closest('.filter-btn').classList.add('active');
+      
+      if (view === 'albums') {
+        displayAlbums();
+      } else {
+        currentFilter = 'all';
+        displayMediaItems();
+      }
+    }
+
+    // View specific album
+    function viewAlbum(uuid) {
+      const album = galleryData.find(a => a.uuid === uuid);
+      if (!album) return;
+      
+      // Switch to media view and filter by this album
+      currentView = 'media';
+      document.getElementById('searchInput').value = album.category;
+      displayMediaItems();
+      
+      // Scroll to gallery
+      document.querySelector('.gallery-container').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Search gallery
+    function searchGallery() {
+      if (currentView === 'albums') {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const albums = document.querySelectorAll('.album-card');
+        
+        albums.forEach(album => {
+          const title = album.querySelector('.album-title').textContent.toLowerCase();
+          album.closest('.col-lg-4').style.display = title.includes(searchTerm) ? 'block' : 'none';
+        });
+      } else {
+        displayMediaItems();
+      }
+    }
+
+    // Open lightbox
+    function openLightbox(index, items) {
+      // Create lightbox elements
+      const galleryElements = items.map(item => {
+        if (item.type === 'image') {
+          return {
+            href: item.src,
+            type: 'image',
+            title: item.category
+          };
+        } else {
+          return {
+            href: item.src,
+            type: 'video',
+            source: 'local',
+            title: item.category
+          };
+        }
+      });
+      
+      const lightbox = GLightbox({
+        elements: galleryElements,
+        startAt: index
+      });
+      
+      lightbox.open();
+    }
+
+    // Show/hide states
+    function showEmptyState() {
+      const emptyState = document.getElementById('emptyState');
+      const searchTerm = document.getElementById('searchInput').value;
+      
+      // Update message based on context
+      if (galleryData.length === 0) {
+        emptyState.innerHTML = `
+          <i class="bi bi-images"></i>
+          <h3>No Gallery Items Yet</h3>
+          <p>Start building your gallery by uploading photos and videos.</p>
+          <p class="mt-2"><small class="text-muted">You can add as many or as few items as you want - completely flexible!</small></p>
+        `;
+      } else {
+        emptyState.innerHTML = `
+          <i class="bi bi-search"></i>
+          <h3>No Items Found</h3>
+          <p>No results match your current filters or search.</p>
+          <p class="mt-2"><small class="text-muted">Try adjusting your filters or clearing the search.</small></p>
+        `;
+      }
+      
+      emptyState.style.display = 'block';
+      document.getElementById('galleryGrid').style.display = 'none';
+      document.getElementById('albumsView').style.display = 'none';
+    }
+
+    function hideEmptyState() {
+      document.getElementById('emptyState').style.display = 'none';
+    }
+
+    function hideLoading() {
+      document.getElementById('loadingState').style.display = 'none';
+    }
+
+    // Sticky filter bar on scroll
+    window.addEventListener('scroll', function() {
+      const filterBar = document.querySelector('.gallery-filters');
+      if (window.scrollY > 100) {
+        filterBar.classList.add('scrolled');
+      } else {
+        filterBar.classList.remove('scrolled');
+      }
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 1000,
+        once: true
+      });
+      
+      loadGallery();
+    });
+  </script>
+
+</body>
+
+</html>

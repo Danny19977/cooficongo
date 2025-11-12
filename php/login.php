@@ -8,12 +8,14 @@ $message = null; // ['type' => 'success'|'error', 'text' => '...']
 $identifier = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// Surface any flash success from registration or query param
+// Surface any flash success from registration, logout, or query param
 if (isset($_SESSION['flash_success'])) {
 	$message = ['type' => 'success', 'text' => $_SESSION['flash_success']];
 	unset($_SESSION['flash_success']);
 } elseif (isset($_GET['registered'])) {
 	$message = ['type' => 'success', 'text' => 'Compte créé avec succès. Vous pouvez vous connecter.'];
+} elseif (isset($_GET['logout']) && $_GET['logout'] === 'success') {
+	$message = ['type' => 'success', 'text' => 'Vous avez été déconnecté avec succès.'];
 }
 	// accept field named "identifier" (can be email or phone) for better UX
 	$identifier = trim($_POST['identifier'] ?? $_POST['email'] ?? '');
@@ -53,8 +55,8 @@ if (isset($_SESSION['flash_success'])) {
 					$_SESSION['role'] = $row['role'] ?? 'User'; // Default to 'User' if role is not set
 
 					// Redirect to dashboard (relative path from php/)
-					header('Location: ../blogpost.php?login=success');
-					echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=../blogpost.php?login=success"><script>window.location.href="../blog.php?login=success";</script></head><body>If you are not redirected, <a href="../blog.php?login=success">click here</a>.</body></html>';
+					header('Location: ../dashboard.php?login=success');
+					echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=../dashboard.php?login=success"><script>window.location.href="../dashboard.php?login=success";</script></head><body>If you are not redirected, <a href="../dashboard.php?login=success">click here</a>.</body></html>';
 					exit();
 				} else {
 					$message = ['type' => 'error', 'text' => 'Email, phone number or password incorrect.'];

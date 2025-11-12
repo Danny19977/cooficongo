@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Contact - AgriCulture Bootstrap Template</title>
+  <title>Contact</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -15,7 +15,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,13 +29,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: AgriCulture
-  * Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="contact-page">
@@ -58,7 +53,8 @@
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><a href="#">Deep Dropdown 1</a></li>
                   <li><a href="#">Deep Dropdown 2</a></li>
@@ -83,14 +79,10 @@
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
+    <div class="page-title dark-background" data-aos="fade"
+      style="background-image: url(assets/img/page-title-bg.webp);">
       <div class="container position-relative">
         <h1>Contact</h1>
-        <p>
-          Home
-          /
-          Contact
-        </p>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
@@ -104,7 +96,9 @@
     <section id="contact" class="contact section">
 
       <div class="mb-5">
-        <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
+        <iframe style="width: 100%; height: 400px;"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+          frameborder="0" allowfullscreen=""></iframe>
       </div><!-- End Google Maps -->
 
       <div class="container" data-aos="fade">
@@ -146,7 +140,13 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <!-- Success/Error Message Alert -->
+            <div id="contactAlert" class="alert alert-dismissible fade show" role="alert" style="display: none;">
+              <strong id="alertTitle"></strong> <span id="alertMessage"></span>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <form action="php/submitcontact.php" method="post" role="form" id="contactForm">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
@@ -159,14 +159,9 @@
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" placeholder="Message" required=""></textarea>
+                <textarea class="form-control" name="message" rows="8" placeholder="Message" required=""></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center mt-4"><button type="submit" class="btn btn-primary">Send Message</button></div>
             </form>
           </div><!-- End Contact Form -->
 
@@ -209,7 +204,7 @@
 
   </main>
 
-   <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer dark-background">
 
     <div class="footer-top">
       <div class="container">
@@ -308,7 +303,8 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -322,6 +318,72 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Contact Form Message Handler -->
+  <script>
+    // Check for success/error messages in URL
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+      const error = urlParams.get('error');
+      const alertDiv = document.getElementById('contactAlert');
+      const alertTitle = document.getElementById('alertTitle');
+      const alertMessage = document.getElementById('alertMessage');
+
+      if (success === 'message_sent') {
+        alertDiv.className = 'alert alert-success alert-dismissible fade show';
+        alertDiv.style.display = 'block';
+        alertTitle.textContent = 'Success!';
+        alertMessage.textContent = 'Your message has been sent successfully. We will get back to you soon!';
+
+        // Clear the form
+        document.getElementById('contactForm').reset();
+
+        // Scroll to alert
+        alertDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Auto-hide after 10 seconds
+        setTimeout(() => {
+          alertDiv.style.display = 'none';
+          // Remove URL parameters
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }, 10000);
+      } else if (error) {
+        let errorMsg = '';
+        switch (error) {
+          case 'empty_fields':
+            errorMsg = 'Please fill in all required fields.';
+            break;
+          case 'invalid_email':
+            errorMsg = 'Please enter a valid email address.';
+            break;
+          case 'database_error':
+            errorMsg = 'A database error occurred. Please try again later.';
+            break;
+          case 'submit_failed':
+            errorMsg = 'Failed to submit your message. Please try again.';
+            break;
+          default:
+            errorMsg = 'An error occurred. Please try again.';
+        }
+
+        alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+        alertDiv.style.display = 'block';
+        alertTitle.textContent = 'Error!';
+        alertMessage.textContent = errorMsg;
+
+        // Scroll to alert
+        alertDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Auto-hide after 10 seconds
+        setTimeout(() => {
+          alertDiv.style.display = 'none';
+          // Remove URL parameters
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }, 10000);
+      }
+    });
+  </script>
 
 </body>
 

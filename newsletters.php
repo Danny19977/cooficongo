@@ -1,5 +1,6 @@
 <?php
-session_start();
+// Protect this page - redirect to login if not authenticated
+require_once __DIR__ . '/php/auth_check.php';
 require_once 'php/newsletter.php';
 
 // Get all newsletter emails
@@ -51,8 +52,18 @@ if (isset($_POST['delete_id'])) {
                             </a>
                         </li>
                         <li class="nav-item mb-2">
+                            <a class="nav-link sidebar-link" href="gallerypost.php">
+                                <i class="bi bi-images me-2"></i> Gallery
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
                             <a class="nav-link sidebar-link active" href="newsletters.php">
                                 <i class="bi bi-envelope-at me-2"></i> Newsletters
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link sidebar-link" href="contactview.php">
+                                <i class="bi bi-envelope-check me-2"></i> Contact Messages
                             </a>
                         </li>
                     </ul>
