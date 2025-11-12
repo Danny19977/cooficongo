@@ -24,47 +24,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
     
-    // Handle image upload
-    $image_path = null;
-    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        $max_size = 5 * 1024 * 1024; // 5MB
+    // Handle image uploads - main image and optional additional images
+    $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    $max_size = 5 * 1024 * 1024; // 5MB
+    $upload_dir = '../assets/img/blog/';
+    
+    // Create directory if it doesn't exist
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0755, true);
+    }
+    
+    // Function to handle single image upload
+    function uploadImage($file, $upload_dir, $allowed_types, $max_size) {
+        if (!isset($file) || $file['error'] != 0) {
+            return null;
+        }
         
-        $file_type = $_FILES['image']['type'];
-        $file_size = $_FILES['image']['size'];
+        $file_type = $file['type'];
+        $file_size = $file['size'];
         
         // Validate file type and size
         if (!in_array($file_type, $allowed_types)) {
-            header("Location: ../blogpost.php?error=invalid_image_type");
-            exit();
+            return false; // Invalid type
         }
         
         if ($file_size > $max_size) {
-            header("Location: ../blogpost.php?error=image_too_large");
-            exit();
+            return false; // Too large
         }
         
         // Generate unique filename
-        $file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $unique_filename = uniqid('blog_', true) . '.' . $file_extension;
-        $upload_dir = '../assets/img/blog/';
-        
-        // Create directory if it doesn't exist
-        if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0755, true);
-        }
-        
         $target_file = $upload_dir . $unique_filename;
         
         // Move uploaded file
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-            $image_path = 'assets/img/blog/' . $unique_filename;
-        } else {
-            header("Location: ../blogpost.php?error=upload_failed");
-            exit();
+        if (move_uploaded_file($file['tmp_name'], $target_file)) {
+            return 'assets/img/blog/' . $unique_filename;
         }
-    } else {
+        
+        return false; // Upload failed
+    }
+    
+    // Upload main image (required)
+    $image_path = uploadImage($_FILES['image'], $upload_dir, $allowed_types, $max_size);
+    
+    if ($image_path === null) {
         header("Location: ../blogpost.php?error=no_image");
+        exit();
+    } elseif ($image_path === false) {
+        header("Location: ../blogpost.php?error=upload_failed");
+        exit();
+    }
+    
+    // Upload additional images (optional)
+    $image_1_path = uploadImage($_FILES['image_1'] ?? null, $upload_dir, $allowed_types, $max_size);
+    $image_2_path = uploadImage($_FILES['image_2'] ?? null, $upload_dir, $allowed_types, $max_size);
+    $image_3_path = uploadImage($_FILES['image_3'] ?? null, $upload_dir, $allowed_types, $max_size);
+    
+    // Check if any optional image upload failed (not just skipped)
+    if ($image_1_path === false || $image_2_path === false || $image_3_path === false) {
+        // Clean up already uploaded files
+        if ($image_path && file_exists('../' . $image_path)) unlink('../' . $image_path);
+        if ($image_1_path && file_exists('../' . $image_1_path)) unlink('../' . $image_1_path);
+        if ($image_2_path && file_exists('../' . $image_2_path)) unlink('../' . $image_2_path);
+        if ($image_3_path && file_exists('../' . $image_3_path)) unlink('../' . $image_3_path);
+        
+        header("Location: ../blogpost.php?error=upload_failed");
         exit();
     }
     
@@ -84,8 +109,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updated_at = date('Y-m-d H:i:s');
     
     // Prepare and execute SQL statement
-    $sql = "INSERT INTO blogposts (uuid, user_uuid, title, category, image, body, created_at, updated_at) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO blogposts (uuid, user_uuid, title, category, image, image_1, image_2, image_3, body, created_at, updated_at) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $stmt = $conn->prepare($sql);
     
@@ -94,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
     
-    $stmt->bind_param("ssssssss", $post_uuid, $user_uuid, $title, $category, $image_path, $body, $created_at, $updated_at);
+    $stmt->bind_param("sssssssssss", $post_uuid, $user_uuid, $title, $category, $image_path, $image_1_path, $image_2_path, $image_3_path, $body, $created_at, $updated_at);
     
     if ($stmt->execute()) {
         $stmt->close();

@@ -51,7 +51,7 @@ if (isset($_SESSION['user_uuid'])) {
                 <div class="sidebar-sticky d-flex flex-column align-items-center h-100">
                     <div class="text-center mb-4 mt-2 animate-on-scroll fade-in-down">
                         <img src="assets/img/logo.png" alt="Logo">
-                        <h5 class="mt-3 mb-0" style="font-family: var(--heading-font); letter-spacing: 1px;">CooFICongo</h5>
+                        <h5 class="mt-3 mb-0" style="font-family: var(--heading-font); letter-spacing: 1px; color: white;">CooFICongo</h5>
                         <span class="badge bg-success bg-gradient mt-2 px-3 py-1 shadow-sm">Dashboard</span>
                     </div>
                     <ul class="nav flex-column w-100 mt-4">
@@ -120,8 +120,24 @@ if (isset($_SESSION['user_uuid'])) {
                                             <input type="text" class="form-control" id="category" name="category" placeholder="Enter category" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="image" class="form-label fw-semibold">Image</label>
+                                            <label for="image" class="form-label fw-semibold">Main Image *</label>
                                             <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+                                            <div class="form-text">Required - Main blog post image</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="image_1" class="form-label fw-semibold">Additional Image 1</label>
+                                            <input class="form-control" type="file" id="image_1" name="image_1" accept="image/*">
+                                            <div class="form-text">Optional - Additional supporting image</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="image_2" class="form-label fw-semibold">Additional Image 2</label>
+                                            <input class="form-control" type="file" id="image_2" name="image_2" accept="image/*">
+                                            <div class="form-text">Optional - Additional supporting image</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="image_3" class="form-label fw-semibold">Additional Image 3</label>
+                                            <input class="form-control" type="file" id="image_3" name="image_3" accept="image/*">
+                                            <div class="form-text">Optional - Additional supporting image</div>
                                         </div>
                                         <div class="mb-3">
                                             <label for="blog" class="form-label fw-semibold">Blog Content</label>

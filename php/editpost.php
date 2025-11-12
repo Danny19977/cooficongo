@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Get current post data
-    $sql = "SELECT image, user_uuid FROM blogposts WHERE uuid = ?";
+    $sql = "SELECT image, image_1, image_2, image_3, user_uuid FROM blogposts WHERE uuid = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $post_uuid);
     $stmt->execute();
@@ -46,50 +46,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     $image_path = $current_post['image'];
+    $image_1_path = $current_post['image_1'];
+    $image_2_path = $current_post['image_2'];
+    $image_3_path = $current_post['image_3'];
     
-    // Handle image upload if new image is provided
-    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        $max_size = 5 * 1024 * 1024; // 5MB
+    // Function to handle single image upload
+    function uploadImage($file, $upload_dir, $allowed_types, $max_size) {
+        if (!isset($file) || $file['error'] != 0) {
+            return null; // No file uploaded
+        }
         
-        $file_type = $_FILES['image']['type'];
-        $file_size = $_FILES['image']['size'];
+        $file_type = $file['type'];
+        $file_size = $file['size'];
         
         if (!in_array($file_type, $allowed_types)) {
-            header("Location: editpost.php?uuid=$post_uuid&error=invalid_image_type");
-            exit();
+            return false; // Invalid type
         }
         
         if ($file_size > $max_size) {
-            header("Location: editpost.php?uuid=$post_uuid&error=image_too_large");
-            exit();
+            return false; // Too large
         }
         
-        // Generate unique filename
-        $file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $unique_filename = uniqid('blog_', true) . '.' . $file_extension;
-        $upload_dir = '../assets/img/blog/';
-        
-        if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0755, true);
-        }
-        
         $target_file = $upload_dir . $unique_filename;
         
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-            // Delete old image
-            if (!empty($current_post['image']) && file_exists('../' . $current_post['image'])) {
-                unlink('../' . $current_post['image']);
-            }
-            $image_path = 'assets/img/blog/' . $unique_filename;
+        if (move_uploaded_file($file['tmp_name'], $target_file)) {
+            return 'assets/img/blog/' . $unique_filename;
         }
+        
+        return false; // Upload failed
+    }
+    
+    $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    $max_size = 5 * 1024 * 1024; // 5MB
+    $upload_dir = '../assets/img/blog/';
+    
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0755, true);
+    }
+    
+    // Handle main image upload if new image is provided
+    $new_image = uploadImage($_FILES['image'] ?? null, $upload_dir, $allowed_types, $max_size);
+    if ($new_image !== null) {
+        if ($new_image === false) {
+            header("Location: editpost.php?uuid=$post_uuid&error=upload_failed");
+            exit();
+        }
+        // Delete old image
+        if (!empty($current_post['image']) && file_exists('../' . $current_post['image'])) {
+            unlink('../' . $current_post['image']);
+        }
+        $image_path = $new_image;
+    }
+    
+    // Handle additional images
+    $new_image_1 = uploadImage($_FILES['image_1'] ?? null, $upload_dir, $allowed_types, $max_size);
+    if ($new_image_1 !== null) {
+        if ($new_image_1 === false) {
+            header("Location: editpost.php?uuid=$post_uuid&error=upload_failed");
+            exit();
+        }
+        if (!empty($current_post['image_1']) && file_exists('../' . $current_post['image_1'])) {
+            unlink('../' . $current_post['image_1']);
+        }
+        $image_1_path = $new_image_1;
+    }
+    
+    $new_image_2 = uploadImage($_FILES['image_2'] ?? null, $upload_dir, $allowed_types, $max_size);
+    if ($new_image_2 !== null) {
+        if ($new_image_2 === false) {
+            header("Location: editpost.php?uuid=$post_uuid&error=upload_failed");
+            exit();
+        }
+        if (!empty($current_post['image_2']) && file_exists('../' . $current_post['image_2'])) {
+            unlink('../' . $current_post['image_2']);
+        }
+        $image_2_path = $new_image_2;
+    }
+    
+    $new_image_3 = uploadImage($_FILES['image_3'] ?? null, $upload_dir, $allowed_types, $max_size);
+    if ($new_image_3 !== null) {
+        if ($new_image_3 === false) {
+            header("Location: editpost.php?uuid=$post_uuid&error=upload_failed");
+            exit();
+        }
+        if (!empty($current_post['image_3']) && file_exists('../' . $current_post['image_3'])) {
+            unlink('../' . $current_post['image_3']);
+        }
+        $image_3_path = $new_image_3;
     }
     
     // Update post in database
     $updated_at = date('Y-m-d H:i:s');
-    $update_sql = "UPDATE blogposts SET title = ?, category = ?, image = ?, body = ?, updated_at = ? WHERE uuid = ?";
+    $update_sql = "UPDATE blogposts SET title = ?, category = ?, image = ?, image_1 = ?, image_2 = ?, image_3 = ?, body = ?, updated_at = ? WHERE uuid = ?";
     $update_stmt = $conn->prepare($update_sql);
-    $update_stmt->bind_param("ssssss", $title, $category, $image_path, $body, $updated_at, $post_uuid);
+    $update_stmt->bind_param("sssssssss", $title, $category, $image_path, $image_1_path, $image_2_path, $image_3_path, $body, $updated_at, $post_uuid);
     
     if ($update_stmt->execute()) {
         $update_stmt->close();
@@ -198,7 +250,7 @@ $conn->close();
                             </div>
                             
                             <div class="mb-3">
-                                <label for="image" class="form-label fw-semibold">Image</label>
+                                <label for="image" class="form-label fw-semibold">Main Image</label>
                                 <div class="mb-2">
                                     <img src="../<?php echo htmlspecialchars($post['image']); ?>" 
                                          class="img-fluid rounded" alt="Current Image" 
@@ -206,6 +258,45 @@ $conn->close();
                                 </div>
                                 <input class="form-control" type="file" id="image" name="image" accept="image/*">
                                 <small class="text-muted">Leave empty to keep current image</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="image_1" class="form-label fw-semibold">Additional Image 1</label>
+                                <?php if (!empty($post['image_1'])): ?>
+                                <div class="mb-2">
+                                    <img src="../<?php echo htmlspecialchars($post['image_1']); ?>" 
+                                         class="img-fluid rounded" alt="Additional Image 1" 
+                                         style="max-height: 150px;">
+                                </div>
+                                <?php endif; ?>
+                                <input class="form-control" type="file" id="image_1" name="image_1" accept="image/*">
+                                <small class="text-muted">Optional - Leave empty to keep current</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="image_2" class="form-label fw-semibold">Additional Image 2</label>
+                                <?php if (!empty($post['image_2'])): ?>
+                                <div class="mb-2">
+                                    <img src="../<?php echo htmlspecialchars($post['image_2']); ?>" 
+                                         class="img-fluid rounded" alt="Additional Image 2" 
+                                         style="max-height: 150px;">
+                                </div>
+                                <?php endif; ?>
+                                <input class="form-control" type="file" id="image_2" name="image_2" accept="image/*">
+                                <small class="text-muted">Optional - Leave empty to keep current</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="image_3" class="form-label fw-semibold">Additional Image 3</label>
+                                <?php if (!empty($post['image_3'])): ?>
+                                <div class="mb-2">
+                                    <img src="../<?php echo htmlspecialchars($post['image_3']); ?>" 
+                                         class="img-fluid rounded" alt="Additional Image 3" 
+                                         style="max-height: 150px;">
+                                </div>
+                                <?php endif; ?>
+                                <input class="form-control" type="file" id="image_3" name="image_3" accept="image/*">
+                                <small class="text-muted">Optional - Leave empty to keep current</small>
                             </div>
                             
                             <div class="mb-4">

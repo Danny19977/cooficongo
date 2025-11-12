@@ -124,6 +124,31 @@ if (isset($_SESSION['user_uuid'])) {
                                             <label for="location" class="form-label fw-semibold">Location</label>
                                             <input type="text" class="form-control" id="location" name="location" placeholder="Event location" required>
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="image" class="form-label fw-semibold">Event Image 1</label>
+                                            <input class="form-control" type="file" id="image" name="image" accept="image/*">
+                                            <div class="form-text">Optional - Main event image</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="image_2" class="form-label fw-semibold">Event Image 2</label>
+                                            <input class="form-control" type="file" id="image_2" name="image_2" accept="image/*">
+                                            <div class="form-text">Optional - Additional event image</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="image_3" class="form-label fw-semibold">Event Image 3</label>
+                                            <input class="form-control" type="file" id="image_3" name="image_3" accept="image/*">
+                                            <div class="form-text">Optional - Additional event image</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="image_4" class="form-label fw-semibold">Event Image 4</label>
+                                            <input class="form-control" type="file" id="image_4" name="image_4" accept="image/*">
+                                            <div class="form-text">Optional - Additional event image</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="image_5" class="form-label fw-semibold">Event Image 5</label>
+                                            <input class="form-control" type="file" id="image_5" name="image_5" accept="image/*">
+                                            <div class="form-text">Optional - Additional event image</div>
+                                        </div>
                                         <button type="submit" class="btn btn-success btn-lg mt-2 shadow-sm"><i class="bi bi-upload me-2"></i>Submit Event</button>
                                     </form>
                                 </div>

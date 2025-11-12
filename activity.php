@@ -713,7 +713,7 @@
           
           <p class="activity-summary">${escapeHtml(summaryPreview)}</p>
           
-          <a href="event.php?id=${escapeHtml(activity.uuid)}" class="readmore">
+          <a href="event-details.php?id=${escapeHtml(activity.uuid)}" class="readmore">
             <span>Learn More</span><i class="bi bi-arrow-right ms-2"></i>
           </a>
         </article>

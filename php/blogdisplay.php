@@ -2,7 +2,7 @@
 require_once 'connection.php';
 
 // Fetch all blog posts ordered by most recent first
-$sql = "SELECT uuid, user_uuid, title, category, image, body, created_at, updated_at 
+$sql = "SELECT uuid, user_uuid, title, category, image, image_1, image_2, image_3, body, created_at, updated_at 
         FROM blogposts 
         ORDER BY created_at DESC";
 

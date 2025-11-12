@@ -35,7 +35,7 @@ if (isset($_POST['delete_id'])) {
                 <div class="sidebar-sticky d-flex flex-column align-items-center h-100">
                     <div class="text-center mb-4 mt-2 animate-on-scroll fade-in-down">
                         <img src="assets/img/logo.png" alt="Logo">
-                        <h5 class="mt-3 mb-0" style="font-family: var(--heading-font); letter-spacing: 1px;">
+                        <h5 class="mt-3 mb-0" style="font-family: var(--heading-font); letter-spacing: 1px; color: white;">
                             CooFICongo</h5>
                         <span class="badge bg-success bg-gradient mt-2 px-3 py-1 shadow-sm">Dashboard</span>
                     </div>

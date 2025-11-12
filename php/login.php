@@ -53,8 +53,8 @@ if (isset($_SESSION['flash_success'])) {
 					$_SESSION['role'] = $row['role'] ?? 'User'; // Default to 'User' if role is not set
 
 					// Redirect to dashboard (relative path from php/)
-					header('Location: ../dashboard.html?login=success');
-					echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=../dashboard.html?login=success"><script>window.location.href="../dashboard.html?login=success";</script></head><body>If you are not redirected, <a href="../dashboard.html?login=success">click here</a>.</body></html>';
+					header('Location: ../blogpost.php?login=success');
+					echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=../blogpost.php?login=success"><script>window.location.href="../blog.php?login=success";</script></head><body>If you are not redirected, <a href="../blog.php?login=success">click here</a>.</body></html>';
 					exit();
 				} else {
 					$message = ['type' => 'error', 'text' => 'Email, phone number or password incorrect.'];

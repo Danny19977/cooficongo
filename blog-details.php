@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment']) && $post_i
 
 if ($post_id) {
   // Fetch the specific post
-  $stmt = $conn->prepare("SELECT uuid, user_uuid, title, category, image, body, created_at, updated_at FROM blogposts WHERE uuid = ?");
+  $stmt = $conn->prepare("SELECT uuid, user_uuid, title, category, image, image_1, image_2, image_3, body, created_at, updated_at FROM blogposts WHERE uuid = ?");
   $stmt->bind_param("s", $post_id);
   $stmt->execute();
   $result = $stmt->get_result();
@@ -560,6 +560,37 @@ if (!$post) {
                     }
                   ?>
                 </div><!-- End post content -->
+
+                <!-- Additional Images Gallery -->
+                <?php 
+                  $additional_images = [];
+                  if (!empty($post['image_1'])) $additional_images[] = $post['image_1'];
+                  if (!empty($post['image_2'])) $additional_images[] = $post['image_2'];
+                  if (!empty($post['image_3'])) $additional_images[] = $post['image_3'];
+                  
+                  if (!empty($additional_images)): 
+                ?>
+                <div class="additional-images-gallery mt-4">
+                  <h4 class="mb-3" style="color: var(--accent-color); font-weight: 700;">
+                    <i class="bi bi-images me-2"></i>More Images
+                  </h4>
+                  <div class="row g-3">
+                    <?php foreach ($additional_images as $img): ?>
+                    <div class="col-md-<?php echo count($additional_images) === 1 ? '12' : (count($additional_images) === 2 ? '6' : '4'); ?>">
+                      <div class="additional-img-wrapper" style="position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="<?php echo htmlspecialchars($img); ?>" 
+                             alt="Additional blog image" 
+                             class="img-fluid" 
+                             style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s ease;"
+                             onerror="this.style.display='none'"
+                             onmouseover="this.style.transform='scale(1.05)'"
+                             onmouseout="this.style.transform='scale(1)'">
+                      </div>
+                    </div>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+                <?php endif; ?>
 
                 <!-- Share Buttons -->
                 <div class="share-buttons">

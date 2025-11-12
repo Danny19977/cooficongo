@@ -10,7 +10,7 @@ $stats = [
 ];
 
 try {
-    $sql = "SELECT uuid, user_uuid, title, summary, description, activity_date, location, created_at, updated_at 
+    $sql = "SELECT uuid, user_uuid, title, image, image_2, image_3, image_4, image_5, summary, description, activity_date, location, created_at, updated_at 
             FROM activitiespost 
             ORDER BY activity_date DESC, created_at DESC";
     $result = $conn->query($sql);
