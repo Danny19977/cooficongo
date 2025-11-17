@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Support Our Cause - Donations</title>
+  <meta name="description" content="Support our mission through secure donations">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/donation.css" rel="stylesheet">
+
+</head>
+
+<body class="donation-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Cooficongo</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="event.php">Events</a></li>
+          <li><a href="blog.php">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donation.html" class="active">Donate</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade"
+      style="background-image: url(assets/img/page-title-bg.jpg);">
+      <div class="container position-relative">
+        <h1>Support Our Mission</h1>
+        <p>Your generosity helps us make a difference in our community</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Donate</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Donation Section -->
+    <section id="donation" class="donation section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center mb-5">
+          <h2>Choose Your Payment Method</h2>
+          <p>Select your preferred payment option to make a secure donation</p>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- PayPal Card -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="payment-card" onclick="openPaymentModal('paypal')">
+              <div class="payment-icon">
+                <i class="bi bi-paypal"></i>
+              </div>
+              <h3>PayPal</h3>
+              <p>Quick and secure payment via PayPal</p>
+              <button class="btn-donate">Donate Now</button>
+            </div>
+          </div>
+
+          <!-- MSPSA Card -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="payment-card" onclick="openPaymentModal('mspsa')">
+              <div class="payment-icon">
+                <i class="bi bi-phone"></i>
+              </div>
+              <h3>M-Pesa</h3>
+              <p>Mobile money transfer via M-Pesa</p>
+              <button class="btn-donate">Donate Now</button>
+            </div>
+          </div>
+
+          <!-- Orange Card -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="payment-card" onclick="openPaymentModal('orange')">
+              <div class="payment-icon">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <h3>Orange Money</h3>
+              <p>Mobile payment via Orange Money</p>
+              <button class="btn-donate">Donate Now</button>
+            </div>
+          </div>
+
+          <!-- Visa Card -->
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="payment-card" onclick="openPaymentModal('visa')">
+              <div class="payment-icon">
+                <i class="bi bi-credit-card"></i>
+              </div>
+              <h3>Visa Card</h3>
+              <p>Pay securely with your Visa card</p>
+              <button class="btn-donate">Donate Now</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Donation Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">AgriCulture</span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>Paroisse Notre Dame du Perpétuel Secours, </p>
+              <p>Ignié centre PK47 département du Pool Congo Brazzaville</p>
+              <p class="mt-3"><strong>Phone:</strong> <span>+242 05 537 6788
+                </span></p>
+              <p class="mt-3"><strong>Phone:</strong> <span>
+                  +242 06 687 3182</span></p>
+              <p><strong>Email:</strong> <span>Coofi.apsf@gmail.com</span></p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="testimonials.html">Terms of service</a></li>
+              <!-- <li><a href="#">Privacy policy</a></li> -->
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nos Services</h4>
+            <ul>
+              <li><a href="#services">Plantation</a></li>
+              <li><a href="#services">Paillage</a></li>
+              <li><a href="#services">Labour</a></li>
+              <li><a href="#services">Semis & Récolte</a></li>
+              <li><a href="#services">Manioc Frais</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Hic solutasetp</h4>
+            <ul>
+              <li><a href="#">Molestiae accusamus iure</a></li>
+              <li><a href="#">Excepturi dignissimos</a></li>
+              <li><a href="#">Suscipit distinctio</a></li>
+              <li><a href="#">Dilecta</a></li>
+              <li><a href="#">Sit quas consectetur</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nobis illum</h4>
+            <ul>
+              <li><a href="#">Ipsam</a></li>
+              <li><a href="#">Laudantium dolorum</a></li>
+              <li><a href="#">Dinera</a></li>
+              <li><a href="#">Trodelas</a></li>
+              <li><a href="#">Flexo</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright text-center">
+      <div
+        class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+            Designed by <a href="https://freelancesoutions.vercel.app/">FREELANCE SOLUTIONS</a> Distributed by <a
+              href="https://freelancesoutions.vercel.app/">FS</a>
+          </div>
+        </div>
+
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href=""><i class="bi bi-twitter-x"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- PayPal Modal -->
+  <div id="paypalModal" class="payment-modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePaymentModal('paypal')">&times;</span>
+      <div class="modal-header">
+        <i class="bi bi-paypal"></i>
+        <h2>PayPal Donation</h2>
+      </div>
+      <div class="modal-body">
+        <form id="paypalForm">
+          <div class="form-group">
+            <label for="paypal-amount">Donation Amount ($)</label>
+            <input type="number" id="paypal-amount" name="amount" class="form-control" min="1" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="paypal-name">Your Name</label>
+            <input type="text" id="paypal-name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="paypal-email">Your Email</label>
+            <input type="email" id="paypal-email" name="email" class="form-control" required>
+          </div>
+          <div class="payment-info">
+            <h4>Send Payment To:</h4>
+            <p class="email-display">donations@cooficongo.org</p>
+            <small>Please include your name in the payment note</small>
+          </div>
+          <button type="submit" class="btn-submit">Confirm Donation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MSPSA Modal -->
+  <div id="mpsaModal" class="payment-modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePaymentModal('mspsa')">&times;</span>
+      <div class="modal-header">
+        <i class="bi bi-phone"></i>
+        <h2>M-Pesa Donation</h2>
+      </div>
+      <div class="modal-body">
+        <form id="mpsaForm">
+          <div class="form-group">
+            <label for="mpsa-amount">Donation Amount (FC)</label>
+            <input type="number" id="mpsa-amount" name="amount" class="form-control" min="1" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="mpsa-name">Your Name</label>
+            <input type="text" id="mpsa-name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="mpsa-phone">Your Phone Number</label>
+            <input type="tel" id="mpsa-phone" name="phone" class="form-control" required>
+          </div>
+          <div class="payment-info">
+            <h4>Send Payment To:</h4>
+            <p class="phone-display">+243 XXX XXX XXX</p>
+            <small>Use reference: DONATION + Your Name</small>
+          </div>
+          <button type="submit" class="btn-submit">Confirm Donation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orange Modal -->
+  <div id="orangeModal" class="payment-modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePaymentModal('orange')">&times;</span>
+      <div class="modal-header">
+        <i class="bi bi-telephone"></i>
+        <h2>Orange Money Donation</h2>
+      </div>
+      <div class="modal-body">
+        <form id="orangeForm">
+          <div class="form-group">
+            <label for="orange-amount">Donation Amount (FC)</label>
+            <input type="number" id="orange-amount" name="amount" class="form-control" min="1" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="orange-name">Your Name</label>
+            <input type="text" id="orange-name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="orange-phone">Your Phone Number</label>
+            <input type="tel" id="orange-phone" name="phone" class="form-control" required>
+          </div>
+          <div class="payment-info">
+            <h4>Send Payment To:</h4>
+            <p class="phone-display">+243 YYY YYY YYY</p>
+            <small>Use reference: DONATION + Your Name</small>
+          </div>
+          <button type="submit" class="btn-submit">Confirm Donation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visa Modal -->
+  <div id="visaModal" class="payment-modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePaymentModal('visa')">&times;</span>
+      <div class="modal-header">
+        <i class="bi bi-credit-card"></i>
+        <h2>Visa Card Payment</h2>
+      </div>
+      <div class="modal-body">
+        <form id="visaForm" action="php/process_visa_payment.php" method="POST">
+          <div class="form-group">
+            <label for="visa-amount">Donation Amount ($)</label>
+            <input type="number" id="visa-amount" name="amount" class="form-control" min="1" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="visa-name">Cardholder Name</label>
+            <input type="text" id="visa-name" name="cardholder_name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="visa-number">Card Number</label>
+            <input type="text" id="visa-number" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" required>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="visa-expiry">Expiry Date</label>
+                <input type="text" id="visa-expiry" name="expiry_date" class="form-control" placeholder="MM/YY" maxlength="5" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="visa-cvv">CVV</label>
+                <input type="text" id="visa-cvv" name="cvv" class="form-control" placeholder="123" maxlength="4" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="visa-email">Email Address</label>
+            <input type="email" id="visa-email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="visa-phone">Phone Number</label>
+            <input type="tel" id="visa-phone" name="phone" class="form-control" required>
+          </div>
+          <div class="security-note">
+            <i class="bi bi-shield-check"></i>
+            <p>Your payment information is encrypted and secure</p>
+          </div>
+          <button type="submit" class="btn-submit">Process Payment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="payment-modal">
+    <div class="modal-content success-content">
+      <span class="close" onclick="closeSuccessModal()">&times;</span>
+      <div class="modal-header">
+        <i class="bi bi-check-circle success-icon"></i>
+        <h2>Thank You!</h2>
+      </div>
+      <div class="modal-body text-center">
+        <p>Your donation has been received successfully.</p>
+        <p>We appreciate your generous support!</p>
+        <button onclick="closeSuccessModal()" class="btn-submit">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/donation.js"></script>
+
+</body>
+
+</html>

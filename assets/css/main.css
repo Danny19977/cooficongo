@@ -2723,3 +2723,34 @@ section,
     height: 200px;
   }
 }
+/* Donate Button in Navigation */
+.btn-donate-nav {
+  background: linear-gradient(135deg, #2ea359 0%, #27ae60 100%) !important;
+  color: white !important;
+  padding: 8px 20px !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  margin-left: 10px !important;
+}
+
+.btn-donate-nav:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(46, 163, 89, 0.3) !important;
+  background: linear-gradient(135deg, #27ae60 0%, #2ea359 100%) !important;
+}
+
+.btn-donate-nav::before {
+  display: none !important;
+}
+
+/* Mobile responsiveness for donate button */
+@media (max-width: 1279px) {
+  .btn-donate-nav {
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+    display: block !important;
+    text-align: center !important;
+  }
+}

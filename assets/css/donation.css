@@ -1,0 +1,432 @@
+/* Donation Page Styles */
+
+.donation {
+  padding: 60px 0;
+  background: #f8f9fa;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 0;
+}
+
+/* Payment Cards */
+.payment-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid transparent;
+}
+
+.payment-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(46, 163, 89, 0.15);
+  border-color: #2ea359;
+}
+
+.payment-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: linear-gradient(135deg, #2ea359 0%, #27ae60 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.payment-card:hover .payment-icon {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(46, 163, 89, 0.3);
+}
+
+.payment-icon i {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.payment-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.payment-card p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.btn-donate {
+  background: #2ea359;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-donate:hover {
+  background: #27ae60;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(46, 163, 89, 0.3);
+}
+
+/* Payment Modal Styles */
+.payment-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 3% auto;
+  padding: 0;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.4s ease;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #2ea359 0%, #27ae60 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-header i {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 40px;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
+.close:hover,
+.close:focus {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2ea359;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(46, 163, 89, 0.1);
+}
+
+/* Payment Info Display */
+.payment-info {
+  background: #f0f8ff;
+  border-left: 4px solid #2ea359;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 10px;
+}
+
+.payment-info h4 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.payment-info .email-display,
+.payment-info .phone-display {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2ea359;
+  margin: 10px 0;
+  letter-spacing: 0.5px;
+}
+
+.payment-info small {
+  color: #7f8c8d;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Security Note */
+.security-note {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.security-note i {
+  font-size: 1.5rem;
+  color: #ffc107;
+}
+
+.security-note p {
+  margin: 0;
+  color: #856404;
+  font-size: 0.9rem;
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #2ea359 0%, #27ae60 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(46, 163, 89, 0.3);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Success Modal */
+.success-content {
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 5rem !important;
+  color: #27ae60;
+  display: block;
+  margin-bottom: 10px;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-content .modal-body p {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin: 15px 0;
+}
+
+/* Card Input Formatting */
+#visa-number {
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+#visa-cvv {
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+  }
+
+  .modal-body {
+    padding: 25px;
+  }
+
+  .payment-card {
+    margin-bottom: 20px;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .payment-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .payment-icon i {
+    font-size: 2rem;
+  }
+
+  .payment-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .payment-info .email-display,
+  .payment-info .phone-display {
+    font-size: 1.1rem;
+  }
+}
+
+/* Loading Spinner */
+.btn-submit.loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-submit.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Messages */
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #f5c6cb;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
