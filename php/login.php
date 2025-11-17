@@ -54,6 +54,38 @@ if (isset($_SESSION['flash_success'])) {
 					$_SESSION['username'] = $row['username'];
 					$_SESSION['role'] = $row['role'] ?? 'User'; // Default to 'User' if role is not set
 
+					// Handle "Remember Me" functionality
+					if (isset($_POST['remember']) && $_POST['remember'] == '1') {
+						// Generate a secure random token
+						$token = bin2hex(random_bytes(32));
+						$token_hash = password_hash($token, PASSWORD_DEFAULT);
+						$expiry = date('Y-m-d H:i:s', time() + (30 * 24 * 60 * 60)); // 30 days
+
+						// Store token in database (create remember_tokens table if it doesn't exist)
+						$stmt_token = $conn->prepare("
+							INSERT INTO remember_tokens (user_uuid, token_hash, expires_at, created_at) 
+							VALUES (?, ?, ?, NOW())
+							ON DUPLICATE KEY UPDATE token_hash = VALUES(token_hash), expires_at = VALUES(expires_at), created_at = NOW()
+						");
+						
+						if ($stmt_token) {
+							$stmt_token->bind_param('sss', $row['uuid'], $token_hash, $expiry);
+							$stmt_token->execute();
+							$stmt_token->close();
+
+							// Set secure cookie (30 days)
+							setcookie(
+								'remember_token',
+								$row['uuid'] . ':' . $token,
+								time() + (30 * 24 * 60 * 60),
+								'/',
+								'',
+								false, // set to true if using HTTPS
+								true  // httponly flag for security
+							);
+						}
+					}
+
 					// Redirect to dashboard (relative path from php/)
 					header('Location: ../dashboard.php?login=success');
 					echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=../dashboard.php?login=success"><script>window.location.href="../dashboard.php?login=success";</script></head><body>If you are not redirected, <a href="../dashboard.php?login=success">click here</a>.</body></html>';

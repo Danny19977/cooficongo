@@ -34,13 +34,23 @@ require_once __DIR__ . '/php/auth_check.php';
                             </a>
                         </li>
                         <li class="nav-item mb-2">
-                            <a class="nav-link sidebar-link" id="events-tab" href="event.php">
+                            <a class="nav-link sidebar-link" id="events-tab" href="eventpost.php">
                                 <i class="bi bi-calendar-event me-2"></i> Events
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link sidebar-link" id="gallery-tab" href="gallerypost.php">
+                                <i class="bi bi-images me-2"></i> Gallery
                             </a>
                         </li>
                         <li class="nav-item mb-2">
                             <a class="nav-link sidebar-link" id="newsletters-tab" href="newsletters.php">
                                 <i class="bi bi-envelope-at me-2"></i> Newsletters
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link sidebar-link" id="contact-tab" href="contactview.php">
+                                <i class="bi bi-envelope-check me-2"></i> Contact Messages
                             </a>
                         </li>
                     </ul>
