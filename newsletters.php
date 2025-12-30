@@ -23,6 +23,8 @@ if (isset($_POST['delete_id'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newsletter Emails - CooFICongo</title>
+    <!-- Favicons -->
+    <link href="assets/img/logo2_icon.png" rel="icon">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
@@ -36,7 +38,8 @@ if (isset($_POST['delete_id'])) {
                 <div class="sidebar-sticky d-flex flex-column align-items-center h-100">
                     <div class="text-center mb-4 mt-2 animate-on-scroll fade-in-down">
                         <img src="assets/img/logo.png" alt="Logo">
-                        <h5 class="mt-3 mb-0" style="font-family: var(--heading-font); letter-spacing: 1px; color: white;">
+                        <h5 class="mt-3 mb-0"
+                            style="font-family: var(--heading-font); letter-spacing: 1px; color: white;">
                             CooFICongo</h5>
                         <span class="badge bg-success bg-gradient mt-2 px-3 py-1 shadow-sm">Dashboard</span>
                     </div>
@@ -85,22 +88,27 @@ if (isset($_POST['delete_id'])) {
             <!-- Main Content -->
             <main class="col-md-10 ms-sm-auto px-5 py-4 position-relative dashboard-main">
                 <!-- Header Bar -->
-                <div class="d-flex align-items-center justify-content-between mb-4 animate-on-scroll fade-in-down dashboard-header-glass">
+                <div
+                    class="d-flex align-items-center justify-content-between mb-4 animate-on-scroll fade-in-down dashboard-header-glass">
                     <div class="d-flex align-items-center gap-3">
                         <i class="bi bi-envelope-at fs-3 text-success"></i>
-                        <span class="fs-4 fw-bold" style="font-family: var(--heading-font); color: var(--heading-color); letter-spacing: 1px;">Newsletter Emails</span>
+                        <span class="fs-4 fw-bold"
+                            style="font-family: var(--heading-font); color: var(--heading-color); letter-spacing: 1px;">Newsletter
+                            Emails</span>
                     </div>
                     <div class="d-flex align-items-center gap-3">
                         <span class="badge bg-success bg-gradient px-3 py-2 shadow-sm">Admin</span>
-                        <img src="assets/img/team/team-1.jpg" alt="User" class="rounded-circle border border-2 border-success" style="width: 40px; height: 40px; object-fit: cover;">
+                        <img src="assets/img/team/team-1.jpg" alt="User"
+                            class="rounded-circle border border-2 border-success"
+                            style="width: 40px; height: 40px; object-fit: cover;">
                     </div>
                 </div>
 
                 <?php if (isset($_GET['success'])): ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="bi bi-check-circle me-2"></i>Email deleted successfully!
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="bi bi-check-circle me-2"></i>Email deleted successfully!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
                 <?php endif; ?>
 
                 <!-- Statistics Cards -->
@@ -161,28 +169,30 @@ if (isset($_POST['delete_id'])) {
                                 <tbody>
                                     <?php if (count($emails) > 0): ?>
                                         <?php foreach ($emails as $index => $email): ?>
-                                        <tr>
-                                            <td><?php echo $index + 1; ?></td>
-                                            <td>
-                                                <i class="bi bi-envelope me-2 text-success"></i>
-                                                <strong><?php echo htmlspecialchars($email['email']); ?></strong>
-                                            </td>
-                                            <td>
-                                                <small class="text-muted">
-                                                    <?php echo date('M d, Y - h:i A', strtotime($email['subscribed_date'])); ?>
-                                                </small>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-<?php echo $email['status'] == 'active' ? 'success' : 'secondary'; ?>">
-                                                    <?php echo ucfirst($email['status']); ?>
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteEmail(<?php echo $email['id']; ?>, '<?php echo htmlspecialchars($email['email']); ?>')">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td><?php echo $index + 1; ?></td>
+                                                <td>
+                                                    <i class="bi bi-envelope me-2 text-success"></i>
+                                                    <strong><?php echo htmlspecialchars($email['email']); ?></strong>
+                                                </td>
+                                                <td>
+                                                    <small class="text-muted">
+                                                        <?php echo date('M d, Y - h:i A', strtotime($email['subscribed_date'])); ?>
+                                                    </small>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="badge bg-<?php echo $email['status'] == 'active' ? 'success' : 'secondary'; ?>">
+                                                        <?php echo ucfirst($email['status']); ?>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                        onclick="deleteEmail(<?php echo $email['id']; ?>, '<?php echo htmlspecialchars($email['email']); ?>')">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
                                         <?php endforeach; ?>
                                     <?php else: ?>
                                         <tr>
@@ -326,11 +336,11 @@ if (isset($_POST['delete_id'])) {
         function exportEmails() {
             // Create CSV content
             let csv = 'Email,Subscribed Date,Status\n';
-            
+
             <?php foreach ($emails as $email): ?>
-            csv += '<?php echo htmlspecialchars($email['email']); ?>,<?php echo date('Y-m-d H:i:s', strtotime($email['subscribed_date'])); ?>,<?php echo $email['status']; ?>\n';
+                csv += '<?php echo htmlspecialchars($email['email']); ?>,<?php echo date('Y-m-d H:i:s', strtotime($email['subscribed_date'])); ?>,<?php echo $email['status']; ?>\n';
             <?php endforeach; ?>
-            
+
             // Create download link
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);

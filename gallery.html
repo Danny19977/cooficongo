@@ -10,7 +10,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/logo2_icon.png" rel="logo2_icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -50,8 +50,13 @@
     }
 
     @keyframes backgroundScroll {
-      0% { transform: translateX(0) translateY(0); }
-      100% { transform: translateX(100px) translateY(100px); }
+      0% {
+        transform: translateX(0) translateY(0);
+      }
+
+      100% {
+        transform: translateX(100px) translateY(100px);
+      }
     }
 
     .gallery-hero h1 {
@@ -59,12 +64,12 @@
       font-size: 3.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       animation: fadeInDown 1s ease;
     }
 
     .gallery-hero p {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 1.2rem;
       animation: fadeInUp 1s ease 0.2s both;
     }
@@ -73,7 +78,7 @@
     .gallery-filters {
       background: white;
       padding: 2rem 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 80px;
       z-index: 100;
@@ -81,7 +86,7 @@
     }
 
     .gallery-filters.scrolled {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     .filter-btn {
@@ -151,24 +156,42 @@
       position: relative;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       background: white;
       animation: fadeInScale 0.6s ease both;
     }
 
-    .gallery-item:nth-child(1) { animation-delay: 0.1s; }
-    .gallery-item:nth-child(2) { animation-delay: 0.2s; }
-    .gallery-item:nth-child(3) { animation-delay: 0.3s; }
-    .gallery-item:nth-child(4) { animation-delay: 0.4s; }
-    .gallery-item:nth-child(5) { animation-delay: 0.5s; }
-    .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+    .gallery-item:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .gallery-item:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .gallery-item:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .gallery-item:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .gallery-item:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .gallery-item:nth-child(6) {
+      animation-delay: 0.6s;
+    }
 
     @keyframes fadeInScale {
       from {
         opacity: 0;
         transform: scale(0.8) translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -183,7 +206,8 @@
     .gallery-item-image {
       position: relative;
       width: 100%;
-      padding-top: 75%; /* 4:3 Aspect Ratio */
+      padding-top: 75%;
+      /* 4:3 Aspect Ratio */
       overflow: hidden;
       background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
     }
@@ -210,7 +234,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
       opacity: 0;
       transition: opacity 0.4s ease;
       display: flex;
@@ -250,7 +274,7 @@
       position: absolute;
       top: 15px;
       right: 15px;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       padding: 8px 15px;
       border-radius: 50px;
       font-size: 0.85rem;
@@ -259,7 +283,7 @@
       align-items: center;
       gap: 5px;
       z-index: 10;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
     }
 
@@ -290,7 +314,7 @@
       opacity: 0;
       transition: all 0.4s ease;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
     .gallery-item:hover .view-more-btn {
@@ -309,7 +333,7 @@
       background: white;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: all 0.4s ease;
       cursor: pointer;
     }
@@ -340,11 +364,11 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       padding: 10px 20px;
       border-radius: 50px;
       font-weight: 600;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .album-info {
@@ -391,8 +415,13 @@
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     /* Empty State */
@@ -448,6 +477,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -523,6 +553,7 @@
         opacity: 0;
         transform: translateY(-30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -534,6 +565,7 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -541,8 +573,13 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
   </style>
 
@@ -553,6 +590,8 @@
   <header id="header" class="header d-flex align-items-center position-relative">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
+      <!-- Favicons -->
+      <link href="assets/img/logo2_icon.png" rel="icon">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="CooFICongo">
       </a>
@@ -617,10 +656,11 @@
     <!-- Gallery Content -->
     <section class="gallery-container">
       <div class="container">
-        
+
         <!-- Search Bar -->
         <div class="search-container" data-aos="fade-up">
-          <input type="text" class="search-input" placeholder="Search by category or album..." id="searchInput" oninput="searchGallery()">
+          <input type="text" class="search-input" placeholder="Search by category or album..." id="searchInput"
+            oninput="searchGallery()">
           <button class="search-btn"><i class="bi bi-search"></i></button>
         </div>
 
@@ -641,7 +681,8 @@
           <i class="bi bi-images"></i>
           <h3>No Gallery Items Yet</h3>
           <p>Start building your gallery by uploading photos and videos.</p>
-          <p class="mt-2"><small class="text-muted">You can add as many or as few items as you want - no limits!</small></p>
+          <p class="mt-2"><small class="text-muted">You can add as many or as few items as you want - no limits!</small>
+          </p>
         </div>
 
       </div>
@@ -801,7 +842,7 @@
       try {
         const response = await fetch('php/gallerydisplay.php?format=json');
         const data = await response.json();
-        
+
         if (data.success) {
           galleryData = data.galleries || [];
           updateStats(data.stats);
@@ -822,7 +863,7 @@
       document.getElementById('totalAlbums').textContent = stats.total_galleries || 0;
       document.getElementById('totalImages').textContent = stats.total_images || 0;
       document.getElementById('totalVideos').textContent = stats.total_videos || 0;
-      
+
       // Update filter counts
       document.getElementById('count-all').textContent = (stats.total_images || 0) + (stats.total_videos || 0);
       document.getElementById('count-albums').textContent = stats.total_galleries || 0;
@@ -843,21 +884,21 @@
     function displayAlbums() {
       const albumsView = document.getElementById('albumsView');
       const galleryGrid = document.getElementById('galleryGrid');
-      
+
       albumsView.style.display = 'flex';
       galleryGrid.style.display = 'none';
-      
+
       if (galleryData.length === 0) {
         showEmptyState();
         return;
       }
-      
+
       albumsView.innerHTML = galleryData.map(album => {
         // Count images and videos
         let imageCount = 0;
         let videoCount = 0;
         let coverImage = 'assets/img/logo.png';
-        
+
         for (let i = 1; i <= 10; i++) {
           if (album[`image_${i}`] && album[`image_${i}`].trim() !== '') {
             imageCount++;
@@ -869,9 +910,9 @@
             videoCount++;
           }
         }
-        
+
         const totalItems = imageCount + videoCount;
-        
+
         return `
           <div class="col-lg-4 col-md-6" data-aos="fade-up">
             <div class="album-card" onclick="viewAlbum('${album.uuid}')">
@@ -898,7 +939,7 @@
           </div>
         `;
       }).join('');
-      
+
       hideEmptyState();
       AOS.refresh();
     }
@@ -907,12 +948,12 @@
     function displayMediaItems() {
       const albumsView = document.getElementById('albumsView');
       const galleryGrid = document.getElementById('galleryGrid');
-      
+
       albumsView.style.display = 'none';
       galleryGrid.style.display = 'grid';
-      
+
       const mediaItems = [];
-      
+
       // Extract all media items from albums
       galleryData.forEach(album => {
         // Add images (check for non-empty strings)
@@ -926,7 +967,7 @@
             });
           }
         }
-        
+
         // Add videos (check for non-empty strings)
         for (let i = 1; i <= 10; i++) {
           if (album[`video_${i}`] && album[`video_${i}`].trim() !== '') {
@@ -939,7 +980,7 @@
           }
         }
       });
-      
+
       // Filter based on current filter
       let filteredItems = mediaItems;
       if (currentFilter === 'images') {
@@ -947,26 +988,26 @@
       } else if (currentFilter === 'videos') {
         filteredItems = mediaItems.filter(item => item.type === 'video');
       }
-      
+
       // Apply search filter
       const searchTerm = document.getElementById('searchInput').value.toLowerCase();
       if (searchTerm) {
-        filteredItems = filteredItems.filter(item => 
+        filteredItems = filteredItems.filter(item =>
           item.category.toLowerCase().includes(searchTerm)
         );
       }
-      
+
       if (filteredItems.length === 0) {
         showEmptyState();
         return;
       }
-      
+
       galleryGrid.innerHTML = filteredItems.map((item, index) => {
         const isVideo = item.type === 'video';
-        const mediaContent = isVideo 
+        const mediaContent = isVideo
           ? `<video src="${item.src}" preload="metadata"></video>`
           : `<img src="${item.src}" alt="${item.category}" onerror="this.src='assets/img/logo.png'">`;
-        
+
         return `
           <div class="gallery-item" data-type="${item.type}">
             <div class="gallery-item-image">
@@ -991,9 +1032,9 @@
           </div>
         `;
       }).join('');
-      
+
       hideEmptyState();
-      
+
       // Initialize GLightbox for images
       const lightbox = GLightbox({
         selector: '.gallery-item-image'
@@ -1003,13 +1044,13 @@
     // Filter gallery
     function filterGallery(filter) {
       currentFilter = filter;
-      
+
       // Update active button
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       event.target.closest('.filter-btn').classList.add('active');
-      
+
       if (filter === 'all') {
         setView('all');
       } else {
@@ -1021,13 +1062,13 @@
     // Set view (albums or media)
     function setView(view) {
       currentView = view;
-      
+
       // Update active button
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       event.target.closest('.filter-btn').classList.add('active');
-      
+
       if (view === 'albums') {
         displayAlbums();
       } else {
@@ -1040,12 +1081,12 @@
     function viewAlbum(uuid) {
       const album = galleryData.find(a => a.uuid === uuid);
       if (!album) return;
-      
+
       // Switch to media view and filter by this album
       currentView = 'media';
       document.getElementById('searchInput').value = album.category;
       displayMediaItems();
-      
+
       // Scroll to gallery
       document.querySelector('.gallery-container').scrollIntoView({ behavior: 'smooth' });
     }
@@ -1055,7 +1096,7 @@
       if (currentView === 'albums') {
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         const albums = document.querySelectorAll('.album-card');
-        
+
         albums.forEach(album => {
           const title = album.querySelector('.album-title').textContent.toLowerCase();
           album.closest('.col-lg-4').style.display = title.includes(searchTerm) ? 'block' : 'none';
@@ -1084,12 +1125,12 @@
           };
         }
       });
-      
+
       const lightbox = GLightbox({
         elements: galleryElements,
         startAt: index
       });
-      
+
       lightbox.open();
     }
 
@@ -1097,7 +1138,7 @@
     function showEmptyState() {
       const emptyState = document.getElementById('emptyState');
       const searchTerm = document.getElementById('searchInput').value;
-      
+
       // Update message based on context
       if (galleryData.length === 0) {
         emptyState.innerHTML = `
@@ -1114,7 +1155,7 @@
           <p class="mt-2"><small class="text-muted">Try adjusting your filters or clearing the search.</small></p>
         `;
       }
-      
+
       emptyState.style.display = 'block';
       document.getElementById('galleryGrid').style.display = 'none';
       document.getElementById('albumsView').style.display = 'none';
@@ -1129,7 +1170,7 @@
     }
 
     // Sticky filter bar on scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       const filterBar = document.querySelector('.gallery-filters');
       if (window.scrollY > 100) {
         filterBar.classList.add('scrolled');
@@ -1139,12 +1180,12 @@
     });
 
     // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       AOS.init({
         duration: 1000,
         once: true
       });
-      
+
       loadGallery();
     });
   </script>

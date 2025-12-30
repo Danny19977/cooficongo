@@ -9,6 +9,8 @@ require_once __DIR__ . '/php/auth_check.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - CooFICongo</title>
+    <!-- Favicons -->
+    <link href="assets/img/logo2_icon.png" rel="icon">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
@@ -22,8 +24,7 @@ require_once __DIR__ . '/php/auth_check.php';
                 <div class="sidebar-sticky d-flex flex-column align-items-center h-100">
                     <div class="text-center mb-4 mt-2 animate-on-scroll fade-in-down">
                         <img src="assets/img/logo.png" alt="Logo">
-                        <h5 class="mt-3 mb-0"
-                            style="font-family: var(--heading-font); letter-spacing: 1px;">
+                        <h5 class="mt-3 mb-0" style="font-family: var(--heading-font); letter-spacing: 1px;">
                             CooFICongo</h5>
                         <span class="badge bg-success bg-gradient mt-2 px-3 py-1 shadow-sm">Dashboard</span>
                     </div>
@@ -84,8 +85,10 @@ require_once __DIR__ . '/php/auth_check.php';
                             style="font-family: var(--heading-font); color: var(--heading-color); letter-spacing: 1px;">Dashboard</span>
                     </div>
                     <div class="d-flex align-items-center gap-3">
-                        <span class="text-muted">Welcome, <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?></strong></span>
-                        <span class="badge bg-success bg-gradient px-3 py-2 shadow-sm"><?php echo htmlspecialchars($_SESSION['role'] ?? 'User'); ?></span>
+                        <span class="text-muted">Welcome,
+                            <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?></strong></span>
+                        <span
+                            class="badge bg-success bg-gradient px-3 py-2 shadow-sm"><?php echo htmlspecialchars($_SESSION['role'] ?? 'User'); ?></span>
                         <img src="assets/img/team/team-1.jpg" alt="User"
                             class="rounded-circle border border-2 border-success"
                             style="width: 40px; height: 40px; object-fit: cover;">
