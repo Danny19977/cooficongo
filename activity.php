@@ -15,7 +15,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,8 +40,13 @@
     }
 
     @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
     }
 
     .skeleton-img {
@@ -195,6 +202,7 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -238,8 +246,15 @@
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
     }
 
     /* Pagination Enhancement */
@@ -325,8 +340,8 @@
 
   <header id="header" class="header d-flex align-items-center position-relative">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-<!-- Favicons -->
-  <link href="assets/img/logo2_icon.png" rel="icon">
+      <!-- Favicons -->
+      <link href="assets/img/logo2_icon.png" rel="icon">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="CooFICongo">
       </a>
@@ -339,10 +354,11 @@
           <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="blog.php">Blog</a></li>
           <li><a href="activity.php" class="active">Activities</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><a href="#">Deep Dropdown 1</a></li>
                   <li><a href="#">Deep Dropdown 2</a></li>
@@ -355,7 +371,7 @@
               <li><a href="#">Dropdown 3</a></li>
               <li><a href="#">Dropdown 4</a></li>
             </ul>
-          </li>
+          </li> -->
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -367,7 +383,8 @@
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.webp);">
+    <div class="page-title dark-background" data-aos="fade"
+      style="background-image: url(assets/img/page-title-bg.webp);">
       <div class="container position-relative">
         <h1>Activities & Events</h1>
         <p>Discover our latest activities and upcoming events</p>
@@ -487,42 +504,32 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About us</a></li>
               <li><a href="services.html">Services</a></li>
-              <li><a href="testimonials.html">Terms of service</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Nos Services</h4>
+            <h4>Ce que nous faisons</h4>
             <ul>
-              <li><a href="#services">Plantation</a></li>
-              <li><a href="#services">Paillage</a></li>
-              <li><a href="#services">Labour</a></li>
-              <li><a href="#services">Semis & Récolte</a></li>
-              <li><a href="#services">Manioc Frais</a></li>
+              <li><a href="our_service_info.html#production-only">Plantation</a></li>
+              <li><a href="our_service_info.html#transformation-manioc">Transformation du manioc en chikwangue</a></li>
+              <li><a href="our_service_info.html#production-only">Production durable de manioc</a></li>
+              <li><a href="#services"></a></li>
+              <li><a href="#services"></a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Hic solutasetp</h4>
+            <h4>Activities</h4>
             <ul>
-              <li><a href="#">Molestiae accusamus iure</a></li>
-              <li><a href="#">Excepturi dignissimos</a></li>
-              <li><a href="#">Suscipit distinctio</a></li>
-              <li><a href="#">Dilecta</a></li>
-              <li><a href="#">Sit quas consectetur</a></li>
+              <li><a href="blog.php">Blog</a></li>
+              <li><a href="activity.php">Our Activities</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="donation.html">Donate</a></li>
+              <li><a href="login.html">login</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Nobis illum</h4>
-            <ul>
-              <li><a href="#">Ipsam</a></li>
-              <li><a href="#">Laudantium dolorum</a></li>
-              <li><a href="#">Dinera</a></li>
-              <li><a href="#">Trodelas</a></li>
-              <li><a href="#">Flexo</a></li>
-            </ul>
-          </div>
 
         </div>
       </div>
@@ -555,7 +562,8 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -581,7 +589,7 @@
     let currentLocation = null;
 
     // Load activities on page load
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       loadActivities();
     });
 
@@ -644,14 +652,14 @@
     // Display activities for current page
     function displayActivities(page) {
       const container = document.getElementById('activitiesContainer');
-      
+
       // Filter activities by location if selected
-      let filteredActivities = currentLocation 
+      let filteredActivities = currentLocation
         ? allActivities.filter(activity => activity.location === currentLocation)
         : allActivities;
-      
+
       totalActivities = filteredActivities.length;
-      
+
       const startIndex = (page - 1) * activitiesPerPage;
       const endIndex = startIndex + activitiesPerPage;
       const activitiesToShow = filteredActivities.slice(startIndex, endIndex);
@@ -679,10 +687,10 @@
 
       // Format date
       const activityDate = new Date(activity.activity_date);
-      const formattedDate = activityDate.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+      const formattedDate = activityDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
       });
 
       // Determine if upcoming or past
@@ -728,7 +736,7 @@
       const paginationSection = document.getElementById('activity-pagination');
       const paginationContainer = document.getElementById('paginationContainer');
       const totalPages = Math.ceil(totalActivities / activitiesPerPage);
-      
+
       if (totalPages <= 1) {
         paginationSection.style.display = 'none';
         return;
