@@ -1,10 +1,3 @@
-/**
-* Template Name: AgriCulture
-* Template URL: https://bootstrapmade.com/agriculture-bootstrap-website-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 (function() {
   "use strict";
@@ -240,29 +233,57 @@
   });
 
   /**
-   * Mobile nav toggle
+   * Full-Screen Mobile Menu Modal
    */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  if (mobileNavToggleBtn) {
-    function mobileNavToogle() {
-      document.querySelector('body').classList.toggle('mobile-nav-active');
-      mobileNavToggleBtn.classList.toggle('bi-list');
-      mobileNavToggleBtn.classList.toggle('bi-x');
-    }
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenuModal = document.getElementById('mobileMenuModal');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+  
+  // Open mobile menu
+  if (hamburgerBtn && mobileMenuModal) {
+    hamburgerBtn.addEventListener('click', function() {
+      mobileMenuModal.classList.add('active');
+      hamburgerBtn.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    });
   }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
+  
+  // Close mobile menu
+  function closeMobileMenu() {
+    if (mobileMenuModal) {
+      mobileMenuModal.classList.remove('active');
+      if (hamburgerBtn) {
+        hamburgerBtn.classList.remove('active');
+      }
+      document.body.style.overflow = ''; // Restore scroll
+    }
+  }
+  
+  // Close button click
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeMobileMenu);
+  }
+  
+  // Close when clicking outside nav links (on overlay)
+  if (mobileMenuModal) {
+    mobileMenuModal.addEventListener('click', function(e) {
+      if (e.target === mobileMenuModal) {
+        closeMobileMenu();
       }
     });
-
+  }
+  
+  // Close when clicking any navigation link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileMenuModal && mobileMenuModal.classList.contains('active')) {
+      closeMobileMenu();
+    }
   });
 
   /**
@@ -364,6 +385,28 @@
   if (typeof GLightbox !== 'undefined') {
     const glightbox = GLightbox({
       selector: '.glightbox'
+    });
+  }
+
+  /**
+   * Toggle hamburger icon to X when modal opens/closes
+   */
+  const navbarModal = document.getElementById('navbarModal');
+  if (navbarModal) {
+    navbarModal.addEventListener('show.bs.modal', function () {
+      const hamburgerIcon = document.querySelector('.btn[data-bs-target="#navbarModal"] i');
+      if (hamburgerIcon) {
+        hamburgerIcon.classList.remove('bi-list');
+        hamburgerIcon.classList.add('bi-x');
+      }
+    });
+
+    navbarModal.addEventListener('hide.bs.modal', function () {
+      const hamburgerIcon = document.querySelector('.btn[data-bs-target="#navbarModal"] i');
+      if (hamburgerIcon) {
+        hamburgerIcon.classList.remove('bi-x');
+        hamburgerIcon.classList.add('bi-list');
+      }
     });
   }
 

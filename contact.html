@@ -37,45 +37,58 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.png" alt="AgriCulture">
-        <!-- <h1 class="sitename">AgriCulture</h1>  -->
+        <img src="assets/img/logo.png" alt="CooFICongo">
       </a>
 
-      <nav id="navmenu" class="navmenu stagger-animation">
-        <ul>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="blog.php">Blog</a></li>
           <li><a href="activity.php">Activities</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
           <li><a href="contact.html" class="active">Contact</a></li>
           <li><a href="donation.html" class="btn-donate-nav">Donate</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="btn d-lg-none" type="button" data-bs-toggle="modal" data-bs-target="#navbarModal" aria-label="Toggle mobile menu">
+        <i class="bi bi-list" style="font-size: 32px; color: var(--nav-color);"></i>
+      </button>
 
     </div>
   </header>
+
+  <!-- Bootstrap Modal for Mobile Navigation -->
+  <div class="modal fade" id="navbarModal" tabindex="-1" aria-labelledby="navbarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="navbarModalLabel">
+            <img src="assets/img/logo.png" alt="CooFICongo" style="height: 40px;">
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <nav class="mobile-nav-menu">
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-house-door me-2"></i>Home</a></li>
+              <li><a href="about.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-info-circle me-2"></i>About Us</a></li>
+              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-gear me-2"></i>Our Services</a></li>
+              <li><a href="testimonials.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-chat-quote me-2"></i>Testimonials</a></li>
+              <li><a href="blog.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
+              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-calendar-event me-2"></i>Activities</a></li>
+              <li><a href="contact.html" class="mobile-nav-link active" data-bs-dismiss="modal"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile" data-bs-dismiss="modal"><i class="bi bi-heart me-2"></i>Donate</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main class="main">
 
@@ -275,7 +288,7 @@
 
         <div class="d-flex flex-column align-items-center align-items-lg-start">
           <div>
-            © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+            © Copyright <strong><span>FreelanceSolutions</span></strong>. All Rights Reserved
           </div>
           <div class="credits">
             <!-- All the links in the footer should remain intact. -->
