@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="utf-8">
@@ -101,13 +101,22 @@
 
 			<nav id="navmenu" class="navmenu stagger-animation">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="services.html">Our Services</a></li>
-					<li><a href="testimonials.html">Testimonials</a></li>
-					<li><a href="blog.php">Blog</a></li>
-					<li><a href="activity.php">Activities</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="index.html"><span data-i18n="nav.home">Accueil</span></a></li>
+					<li><a href="about.html"><span data-i18n="nav.about">À propos</span></a></li>
+					<li><a href="services.html"><span data-i18n="nav.services">Nos Services</span></a></li>
+					<li><a href="testimonials.html"><span data-i18n="nav.testimonials">Témoignages</span></a></li>
+					<li><a href="blog.php"><span data-i18n="nav.blog">Blog</span></a></li>
+					<li><a href="activity.php"><span data-i18n="nav.activities">Activités</span></a></li>
+					<li><a href="contact.html"><span data-i18n="nav.contact">Contact</span></a></li>
+					<li class="dropdown language-dropdown">
+						<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="bi bi-translate me-1"></i><span data-i18n="lang.current">Français</span>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end">
+							<li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+							<li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+						</ul>
+					</li>
 				</ul>
 				<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 			</nav>
@@ -124,7 +133,7 @@
 				<p>Connectez-vous pour accéder à votre espace</p>
 				<nav class="breadcrumbs">
 					<ol>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html" data-i18n="breadcrumbs.home">Accueil</a></li>
 						<li class="current">Login</li>
 					</ol>
 				</nav>
@@ -207,10 +216,10 @@
 					<div class="col-lg-2 col-md-3 footer-links">
 						<h4>Useful Links</h4>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
 							<li><a href="about.html">About us</a></li>
-							<li><a href="services.html">Services</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="services.html" data-i18n="nav.services">Nos Services</a></li>
+							<li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -226,8 +235,9 @@
 		</div>
 	</footer>
 
-	<!-- Vendor JS -->
+	  <!-- Vendor JS -->
 	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/js/i18n.js"></script>
 	<script>
 		// Simple client-side validation UI
 		(function () {

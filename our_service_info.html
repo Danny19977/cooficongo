@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
@@ -18,6 +18,7 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <script src="assets/js/i18n.js" defer></script>
 
     <style>
         /* Section-specific typography for Production durable de manioc */
@@ -72,26 +73,19 @@
 
             <nav id="navmenu" class="navmenu stagger-animation">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html" class="active">Our Services</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="blog.php">Blog</a></li>
-                    <li><a href="activity.php">Activities</a></li>
-                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Dropdown 2</a></li>
+                    <li><a href="index.html"><span data-i18n="nav.home">Accueil</span></a></li>
+                    <li><a href="about.html"><span data-i18n="nav.about">À propos</span></a></li>
+                    <li><a href="services.html" class="active"><span data-i18n="nav.services">Nos Services</span></a></li>
+                    <li><a href="testimonials.html"><span data-i18n="nav.testimonials">Témoignages</span></a></li>
+                    <li><a href="blog.php"><span data-i18n="nav.blog">Blog</span></a></li>
+                    <li><a href="activity.php"><span data-i18n="nav.activities">Activités</span></a></li>
+                    <li><a href="contact.html"><span data-i18n="nav.contact">Contact</span></a></li>
+                    <li class="dropdown language-dropdown"><a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-translate me-1"></i><span data-i18n="lang.current">Français</span></a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -275,12 +269,12 @@
                     </div>
 
                     <div class="col-lg-2 col-md-3 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4 data-i18n="footer.useful_links">Liens utiles</h4>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                            <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+                            <li><a href="services.html" data-i18n="nav.services">Nos Services</a></li>
+                            <li><a href="testimonials.html" data-i18n="nav.testimonials">Témoignages</a></li>
                         </ul>
                     </div>
 
@@ -296,12 +290,12 @@
                     </div>
 
                     <div class="col-lg-2 col-md-3 footer-links">
-                        <h4>Activities</h4>
+                        <h4 data-i18n="footer.activities">Activités</h4>
                         <ul>
-                            <li><a href="blog.php">Blog</a></li>
-                            <li><a href="activity.php">Our Activities</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="donation.html">Donate</a></li>
+                            <li><a href="blog.php" data-i18n="nav.blog">Blog</a></li>
+                            <li><a href="activity.php" data-i18n="footer.our_activities">Nos activités</a></li>
+                            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                            <li><a href="donation.html" data-i18n="nav.donate">Faire un don</a></li>
                         </ul>
                     </div>
 

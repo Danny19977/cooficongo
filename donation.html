@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Support Our Cause - Donations</title>
-  <meta name="description" content="Support our mission through secure donations">
+  <title>Soutenez notre cause - Dons</title>
+  <meta name="description" content="Soutenez notre mission grâce à des dons sécurisés">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
@@ -44,14 +44,23 @@
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="blog.php">Blog</a></li>
-          <li><a href="activity.php">Activities</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="donation.html" class="active btn-donate-nav">Donate</a></li>
+          <li><a href="index.html"><span data-i18n="nav.home">Accueil</span></a></li>
+          <li><a href="about.html"><span data-i18n="nav.about">À propos</span></a></li>
+          <li><a href="services.html"><span data-i18n="nav.services">Nos Services</span></a></li>
+          <li><a href="testimonials.html"><span data-i18n="nav.testimonials">Témoignages</span></a></li>
+          <li><a href="blog.php"><span data-i18n="nav.blog">Blog</span></a></li>
+          <li><a href="activity.php"><span data-i18n="nav.activities">Activités</span></a></li>
+          <li><a href="contact.html"><span data-i18n="nav.contact">Contact</span></a></li>
+          <li><a href="donation.html" class="active btn-donate-nav"><span data-i18n="nav.donate">Faire un don</span></a></li>
+          <li class="dropdown language-dropdown">
+            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-translate me-1"></i><span data-i18n="lang.current">Français</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+              <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
 
@@ -76,15 +85,21 @@
         <div class="modal-body">
           <nav class="mobile-nav-menu">
             <ul class="list-unstyled">
-              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-house-door me-2"></i>Home</a></li>
-              <li><a href="about.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-info-circle me-2"></i>About Us</a></li>
-              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-gear me-2"></i>Our Services</a></li>
-              <li><a href="testimonials.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-chat-quote me-2"></i>Testimonials</a></li>
-              <li><a href="blog.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
-              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-calendar-event me-2"></i>Activities</a></li>
-              <li><a href="contact.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-envelope me-2"></i>Contact</a></li>
-              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile active" data-bs-dismiss="modal"><i class="bi bi-heart me-2"></i>Donate</a></li>
+              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-house-door me-2"></i><span data-i18n="nav.home">Accueil</span></a></li>
+              <li><a href="about.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-info-circle me-2"></i><span data-i18n="nav.about">À propos</span></a></li>
+              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-gear me-2"></i><span data-i18n="nav.services">Nos Services</span></a></li>
+              <li><a href="testimonials.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-chat-quote me-2"></i><span data-i18n="nav.testimonials">Témoignages</span></a></li>
+              <li><a href="blog.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-journal-text me-2"></i><span data-i18n="nav.blog">Blog</span></a></li>
+              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-calendar-event me-2"></i><span data-i18n="nav.activities">Activités</span></a></li>
+              <li><a href="contact.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-envelope me-2"></i><span data-i18n="nav.contact">Contact</span></a></li>
+              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile active" data-bs-dismiss="modal"><i class="bi bi-heart me-2"></i><span data-i18n="nav.donate">Faire un don</span></a></li>
             </ul>
+            <div class="mt-4">
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-lang="fr">Français</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-lang="en">English</button>
+              </div>
+            </div>
           </nav>
         </div>
       </div>
@@ -97,12 +112,12 @@
     <div class="page-title dark-background" data-aos="fade"
       style="background-image: url(assets/img/page-title-bg.jpg);">
       <div class="container position-relative">
-        <h1>Support Our Mission</h1>
-        <p>Your generosity helps us make a difference in our community</p>
+        <h1 data-i18n="donation.page_title">Soutenez notre mission</h1>
+        <p data-i18n="donation.page_desc">Votre générosité nous aide à faire la différence dans notre communauté</p>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Donate</li>
+            <li><a href="index.html" data-i18n="breadcrumbs.home">Accueil</a></li>
+            <li class="current" data-i18n="donation.breadcrumbs.current">Don</li>
           </ol>
         </nav>
       </div>
@@ -114,8 +129,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title text-center mb-5">
-          <h2>Choose Your Payment Method</h2>
-          <p>Select your preferred payment option to make a secure donation</p>
+          <h2 data-i18n="donation.choose_method">Choisissez votre méthode de paiement</h2>
+          <p data-i18n="donation.choose_method_desc">Sélectionnez l'option de paiement pour faire un don sécurisé</p>
         </div>
 
         <div class="row g-4 justify-content-center">
@@ -126,9 +141,9 @@
               <div class="payment-icon">
                 <i class="bi bi-paypal"></i>
               </div>
-              <h3>PayPal</h3>
-              <p>Quick and secure payment via PayPal</p>
-              <button class="btn-donate">Donate Now</button>
+              <h3 data-i18n="donation.paypal">PayPal</h3>
+              <p data-i18n="donation.paypal_desc">Paiement rapide et sécurisé via PayPal</p>
+              <button class="btn-donate" data-i18n="donation.donate_now">Faire un don</button>
             </div>
           </div>
 
@@ -138,9 +153,9 @@
               <div class="payment-icon">
                 <i class="bi bi-phone"></i>
               </div>
-              <h3>M-Pesa</h3>
-              <p>Mobile money transfer via M-Pesa</p>
-              <button class="btn-donate">Donate Now</button>
+              <h3 data-i18n="donation.mpesa">M-Pesa</h3>
+              <p data-i18n="donation.mpesa_desc">Transfert d'argent mobile via M-Pesa</p>
+              <button class="btn-donate" data-i18n="donation.donate_now">Faire un don</button>
             </div>
           </div>
 
@@ -150,9 +165,9 @@
               <div class="payment-icon">
                 <i class="bi bi-telephone"></i>
               </div>
-              <h3>Orange Money</h3>
-              <p>Mobile payment via Orange Money</p>
-              <button class="btn-donate">Donate Now</button>
+              <h3 data-i18n="donation.orange">Orange Money</h3>
+              <p data-i18n="donation.orange_desc">Paiement mobile via Orange Money</p>
+              <button class="btn-donate" data-i18n="donation.donate_now">Faire un don</button>
             </div>
           </div>
 
@@ -185,12 +200,12 @@
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4 data-i18n="footer.useful_links">Liens utiles</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About us</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+              <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+              <li><a href="services.html" data-i18n="nav.services">Nos Services</a></li>
+              <li><a href="testimonials.html" data-i18n="nav.testimonials">Témoignages</a></li>
               <!-- <li><a href="#">Privacy policy</a></li> -->
             </ul>
           </div>
@@ -207,12 +222,12 @@
           </div>
 
            <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Activities</h4>
+            <h4 data-i18n="footer.activities">Activités</h4>
             <ul>
-              <li><a href="blog.php">Blog</a></li>
-              <li><a href="activity.php">Our Activities</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="donation.html">Donate</a></li>
+              <li><a href="blog.php" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="activity.php" data-i18n="footer.our_activities">Nos activités</a></li>
+              <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+              <li><a href="donation.html" data-i18n="nav.donate">Faire un don</a></li>
             </ul>
           </div>
 
@@ -434,6 +449,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/donation.js"></script>
 
 </body>

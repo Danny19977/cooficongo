@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -43,19 +43,29 @@
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="blog.php">Blog</a></li>
-          <li><a href="activity.php">Activities</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
-          <li><a href="donation.html" class="btn-donate-nav">Donate</a></li>
+          <li><a href="index.html"><span data-i18n="nav.home">Accueil</span></a></li>
+          <li><a href="about.html"><span data-i18n="nav.about">À propos</span></a></li>
+          <li><a href="services.html"><span data-i18n="nav.services">Nos Services</span></a></li>
+          <li><a href="testimonials.html"><span data-i18n="nav.testimonials">Témoignages</span></a></li>
+          <li><a href="blog.php"><span data-i18n="nav.blog">Blog</span></a></li>
+          <li><a href="activity.php"><span data-i18n="nav.activities">Activités</span></a></li>
+          <li><a href="contact.html" class="active"><span data-i18n="nav.contact">Contact</span></a></li>
+          <li><a href="donation.html" class="btn-donate-nav"><span data-i18n="nav.donate">Faire un don</span></a></li>
+          <li class="dropdown language-dropdown">
+            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-translate me-1"></i><span data-i18n="lang.current">Français</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+              <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
 
       <!-- Mobile Hamburger -->
-      <button class="btn d-lg-none" type="button" data-bs-toggle="modal" data-bs-target="#navbarModal" aria-label="Toggle mobile menu">
+      <button class="btn d-lg-none" type="button" data-bs-toggle="modal" data-bs-target="#navbarModal"
+        aria-label="Toggle mobile menu">
         <i class="bi bi-list" style="font-size: 32px; color: var(--nav-color);"></i>
       </button>
 
@@ -73,18 +83,32 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <nav class="mobile-nav-menu">
+              <nav class="mobile-nav-menu">
             <ul class="list-unstyled">
-              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-house-door me-2"></i>Home</a></li>
-              <li><a href="about.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-info-circle me-2"></i>About Us</a></li>
-              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-gear me-2"></i>Our Services</a></li>
-              <li><a href="testimonials.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-chat-quote me-2"></i>Testimonials</a></li>
-              <li><a href="blog.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-journal-text me-2"></i>Blog</a></li>
-              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-calendar-event me-2"></i>Activities</a></li>
-              <li><a href="contact.html" class="mobile-nav-link active" data-bs-dismiss="modal"><i class="bi bi-envelope me-2"></i>Contact</a></li>
-              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile" data-bs-dismiss="modal"><i class="bi bi-heart me-2"></i>Donate</a></li>
+              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                class="bi bi-house-door me-2"></i><span data-i18n="nav.home">Accueil</span></a></li>
+              <li><a href="about.html" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                class="bi bi-info-circle me-2"></i><span data-i18n="nav.about">À propos</span></a></li>
+              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                class="bi bi-gear me-2"></i><span data-i18n="nav.services">Nos Services</span></a></li>
+              <li><a href="testimonials.html" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                class="bi bi-chat-quote me-2"></i><span data-i18n="nav.testimonials">Témoignages</span></a></li>
+              <li><a href="blog.php" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                class="bi bi-journal-text me-2"></i><span data-i18n="nav.blog">Blog</span></a></li>
+              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                class="bi bi-calendar-event me-2"></i><span data-i18n="nav.activities">Activités</span></a></li>
+              <li><a href="contact.html" class="mobile-nav-link active" data-bs-dismiss="modal"><i
+                class="bi bi-envelope me-2"></i><span data-i18n="nav.contact">Contact</span></a></li>
+              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile" data-bs-dismiss="modal"><i
+                class="bi bi-heart me-2"></i><span data-i18n="nav.donate">Faire un don</span></a></li>
             </ul>
-          </nav>
+            <div class="mt-4">
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-lang="fr">Français</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-lang="en">English</button>
+              </div>
+            </div>
+              </nav>
         </div>
       </div>
     </div>
@@ -96,11 +120,11 @@
     <div class="page-title dark-background" data-aos="fade"
       style="background-image: url(assets/img/page-title-bg.webp);">
       <div class="container position-relative">
-        <h1>Contact</h1>
+        <h1 data-i18n="contact.title">Contact</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Contact</li>
+            <li><a href="index.html" data-i18n="breadcrumbs.home">Accueil</a></li>
+            <li class="current" data-i18n="contact.title">Contact</li>
           </ol>
         </nav>
       </div>
@@ -128,13 +152,13 @@
           <div class="col-lg-4">
 
             <div class="info">
-              <h3>Get in touch</h3>
-              <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia commodi minus.</p>
+              <h3 data-i18n="contact.get_in_touch">Contactez-nous</h3>
+              <!-- <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia commodi minus.</p> -->
 
               <div class="info-item d-flex">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h4>Location:</h4>
+                  <h4 data-i18n="contact.location">Localisation :</h4>
                   <p>aroisse Notre Dame du Perpétuel Secours,
                     Ignié centre PK47 département du Pool Congo Brazzaville</p>
                 </div>
@@ -143,15 +167,15 @@
               <div class="info-item d-flex">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h4>Email:</h4>
-                  <p>info@example.com</p>
+                  <h4 data-i18n="contact.email">Email :</h4>
+                  <p>Coofi.apsf@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex">
                 <i class="bi bi-phone flex-shrink-0"></i>
                 <div>
-                  <h4>Call:</h4>
+                  <h4 data-i18n="contact.call">Téléphone :</h4>
                   <p>+242 05 537 6788, +242 06 687 3182</p>
                 </div>
               </div><!-- End Info Item -->
@@ -170,19 +194,19 @@
             <form action="php/submitcontact.php" method="post" role="form" id="contactForm">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" data-i18n-placeholder="contact.placeholder.name" required="">
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Votre e-mail" data-i18n-placeholder="contact.placeholder.email" required="">
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" data-i18n-placeholder="contact.placeholder.subject" required="">
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="8" placeholder="Message" required=""></textarea>
+                <textarea class="form-control" name="message" rows="8" placeholder="Message" data-i18n-placeholder="contact.placeholder.message" required=""></textarea>
               </div>
-              <div class="text-center mt-4"><button type="submit" class="btn btn-primary">Send Message</button></div>
+              <div class="text-center mt-4"><button type="submit" class="btn btn-primary" data-i18n="contact.send_message">Envoyer</button></div>
             </form>
           </div><!-- End Contact Form -->
 
@@ -199,22 +223,22 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-6">
-              <h3>Subscribe To Our Newsletter</h3>
+              <h3 data-i18n="newsletter.title">Abonnez-vous à notre newsletter</h3>
               <p class="opacity-50">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt, reprehenderit!
+                Rejoignez notre communauté ! Actualités de la ferme, événements de la CooFI, et surprises gourmandes
+                vous attendent. Un clic suffit pour rester connecté à la terre.
               </p>
             </div>
             <div class="col-lg-6">
               <form action="forms/newsletter.php" class="form-subscribe php-email-form">
                 <div class="form-group d-flex align-items-stretch">
-                  <input type="email" name="email" class="form-control h-100" placeholder="Enter your e-mail">
-                  <input type="submit" class="btn btn-secondary px-4" value="Subcribe">
+                  <input type="email" name="email" class="form-control h-100" placeholder="Entrez votre e-mail" data-i18n-placeholder="newsletter.placeholder.email">
+                  <input type="submit" class="btn btn-secondary px-4" value="S'abonner" data-i18n-value="newsletter.subscribe">
                 </div>
-                <div class="loading">Loading</div>
+                <div class="loading" data-i18n="newsletter.loading">Chargement</div>
                 <div class="error-message"></div>
-                <div class="sent-message">
-                  Your subscription request has been sent. Thank you!
+                <div class="sent-message" data-i18n="newsletter.sent">
+                  Votre demande d'abonnement a été envoyée. Merci !
                 </div>
               </form>
             </div>
@@ -246,12 +270,12 @@
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4 data-i18n="footer.useful_links">Liens utiles</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About us</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+              <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+              <li><a href="services.html" data-i18n="nav.services">Nos Services</a></li>
+              <li><a href="testimonials.html" data-i18n="nav.testimonials">Témoignages</a></li>
               <!-- <li><a href="#">Privacy policy</a></li> -->
             </ul>
           </div>
@@ -267,13 +291,13 @@
             </ul>
           </div>
 
-           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Activities</h4>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4 data-i18n="footer.activities">Activités</h4>
             <ul>
-              <li><a href="blog.php">Blog</a></li>
-              <li><a href="activity.php">Our Activities</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="donation.html">Donate</a></li>
+              <li><a href="blog.php" data-i18n="nav.blog">Blog</a></li>
+              <li><a href="activity.php" data-i18n="footer.our_activities">Nos activités</a></li>
+              <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+              <li><a href="donation.html" data-i18n="nav.donate">Faire un don</a></li>
             </ul>
           </div>
 
@@ -328,6 +352,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
 
   <!-- Contact Form Message Handler -->
   <script>
