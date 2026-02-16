@@ -1888,6 +1888,19 @@ section,
   height: 100px;
   border-radius: 50%;
   margin-bottom: 20px;
+  border: 3px solid var(--accent-color);
+}
+
+.testimonial-video {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  max-height: 400px;
+  height: auto;
+  border: 4px solid var(--accent-color);
+  border-radius: 8px;
+  background: #000;
+  margin-bottom: 20px;
 }
 
 .testimonials .testimonial blockquote p {
