@@ -343,7 +343,7 @@
       <!-- Favicons -->
       <link href="assets/img/logo2_icon.png" rel="icon">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="CooFICongo">
+        <img src="assets/img/logo.png" alt="CooFICongo" width="200" height="400">
       </a>
 
       <nav id="navmenu" class="navmenu stagger-animation">
