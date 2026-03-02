@@ -351,7 +351,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
+          <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
           <li><a href="blog.php">Blog</a></li>
           <li><a href="activity.php" class="active">Activities</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -504,7 +504,7 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About us</a></li>
               <li><a href="services.html">Services</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
+              <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
             </ul>
           </div>
 
