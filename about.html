@@ -30,6 +30,141 @@
   <link href="assets/css/main.css" rel="stylesheet">
   <script src="assets/js/i18n.js" defer></script>
 
+  <style>
+    /* About-3 coming soon popup */
+    .coming-soon-modal .modal-content {
+      border: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0d2f1f 0%, #1f5a35 55%, #2e8451 100%);
+      color: #fff;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .coming-soon-modal .modal-body {
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .coming-soon-icon {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      animation: pulseRing 1.8s ease-in-out infinite;
+    }
+
+    .coming-soon-title {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .coming-soon-text {
+      margin: 0 auto;
+      max-width: 320px;
+      opacity: 0.92;
+    }
+
+    @keyframes pulseRing {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    /* Mission and values cards */
+    .mission-values .info-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      height: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .mission-values .info-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .mission-values .info-card p {
+      margin-bottom: 0;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .mission-values .values-title {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Partners section */
+    .partners-grid .partner-logo {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      padding: 1rem;
+      min-height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .partners-grid .partner-logo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    .partners-grid .partner-logo img {
+      max-width: 100%;
+      max-height: 72px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: saturate(1.05);
+    }
+
+    .partners-grid .partner-logo.partner-with-caption {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 0.75rem;
+      text-align: center;
+    }
+
+    .partners-grid .partner-logo.partner-with-caption h3 {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.35;
+      font-weight: 600;
+      color: #1f3f2d;
+    }
+
+    .partners-grid .partner-text-square {
+      min-height: 130px;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      font-weight: 600;
+      color: #1f3f2d;
+      padding: 0.9rem;
+    }
+  </style>
+
 
 </head>
 
@@ -66,7 +201,8 @@
       </nav>
 
       <!-- Mobile Hamburger -->
-      <button class="btn d-lg-none" type="button" data-bs-toggle="modal" data-bs-target="#navbarModal" aria-label="Toggle mobile menu">
+      <button class="btn d-lg-none" type="button" data-bs-toggle="modal" data-bs-target="#navbarModal"
+        aria-label="Toggle mobile menu">
         <i class="bi bi-list" style="font-size: 32px; color: var(--nav-color);"></i>
       </button>
 
@@ -86,14 +222,21 @@
         <div class="modal-body">
           <nav class="mobile-nav-menu">
             <ul class="list-unstyled">
-              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-house-door me-2"></i><span data-i18n="nav.home">Accueil</span></a></li>
-              <li><a href="about.html" class="mobile-nav-link active" data-bs-dismiss="modal"><i class="bi bi-info-circle me-2"></i><span data-i18n="nav.about">À propos</span></a></li>
-              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-gear me-2"></i><span data-i18n="nav.services">Nos Services</span></a></li>
+              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                    class="bi bi-house-door me-2"></i><span data-i18n="nav.home">Accueil</span></a></li>
+              <li><a href="about.html" class="mobile-nav-link active" data-bs-dismiss="modal"><i
+                    class="bi bi-info-circle me-2"></i><span data-i18n="nav.about">À propos</span></a></li>
+              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                    class="bi bi-gear me-2"></i><span data-i18n="nav.services">Nos Services</span></a></li>
               <!-- <li><a href="testimonials.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-chat-quote me-2"></i><span data-i18n="nav.testimonials">Témoignages</span></a></li> -->
-              <li><a href="blog.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-journal-text me-2"></i><span data-i18n="nav.blog">Blog</span></a></li>
-              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-calendar-event me-2"></i><span data-i18n="nav.activities">Activités</span></a></li>
-              <li><a href="contact.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-envelope me-2"></i><span data-i18n="nav.contact">Contact</span></a></li>
-              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile" data-bs-dismiss="modal"><i class="bi bi-heart me-2"></i><span data-i18n="nav.donate">Faire un don</span></a></li>
+              <li><a href="blog.php" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                    class="bi bi-journal-text me-2"></i><span data-i18n="nav.blog">Blog</span></a></li>
+              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                    class="bi bi-calendar-event me-2"></i><span data-i18n="nav.activities">Activités</span></a></li>
+              <li><a href="contact.html" class="mobile-nav-link" data-bs-dismiss="modal"><i
+                    class="bi bi-envelope me-2"></i><span data-i18n="nav.contact">Contact</span></a></li>
+              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile" data-bs-dismiss="modal"><i
+                    class="bi bi-heart me-2"></i><span data-i18n="nav.donate">Faire un don</span></a></li>
             </ul>
             <div class="mt-4">
               <div class="d-flex gap-2">
@@ -124,18 +267,99 @@
       </div>
     </div><!-- End Page Title -->
 
+    <!-- Mission Version -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="bounce-in"> À propos de la structure</h2>
+        <p class="fade-in-up" style="font-size: 20px">La Coopérative des Femmes d’Ignié de Notre Dame du Perpétuel
+          Secours, CooFI en sigle, est une coopérative paysanne qui opère dans le domaine de l’agro- transformation du
+          manioc dans la zone péri-urbaine d’Ignié située dans le département du Pool, en République du Congo.
+
+        </p>
+
+        <br>
+         <h2 class="bounce-in"> Date de la création</h2>
+        <p class="fade-in-up" style="font-size: 20px">
+          La CooFI a acquis sa personnalité juridique, à la suite de l’obtention, le 22 novembre 2022, de l’ attestation
+          d’agrément numéro 953/MAEP/DGA-DAPR
+        </p>
+      </div><!-- End Section Title -->
+
+      <div class="container mission-values" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="info-card">
+              <h3 class="bounce-in">Vision</h3>
+              <p class="fade-in-up">
+                Notre vision est de devenir une source d’inspiration pour l’autonomisation économique des femmes dans le
+                secteur agricole, tout en étant un pilier du développement agricole et économique de la région d’Ignié.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info-card">
+              <h3 class="bounce-in">Mission</h3>
+              <p class="fade-in-up">
+                Notre mission est de promouvoir l’autonomie et d’améliorer les conditions socio-économiques des membres,
+                de contribuer au développement local tout en favorisant des pratiques agricoles durables.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-12">
+            <h3 class="bounce-in values-title">Valeurs</h3>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="info-card">
+              <h3 class="bounce-in">Autonomisation</h3>
+              <p class="fade-in-up">
+                Nous cherchons à autonomiser les femmes économiquement en offrant des opportunités d’entrepreneuriat,
+                d’apprentissage et de leadership dans le secteur agricole.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="info-card">
+              <h3 class="bounce-in">Solidarité</h3>
+              <p class="fade-in-up">
+                Nous croyons en la force de la collaboration et de l’entraide entre les femmes de notre coopérative,
+                ainsi que les membres de la communauté.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <div class="info-card">
+              <h3 class="bounce-in">Durabilité</h3>
+              <p class="fade-in-up">
+                Nous nous efforçons de pratiquer une agriculture respectueuse de l’environnement et socialement
+                responsable pour préserver les ressources naturelles pour les générations futures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Mission Version -->
+
     <!-- About 3 Section -->
     <section id="about-3" class="about-3 section">
 
       <div class="container">
-        <div class="row gy-4 justify-content-between align-items-center">
-          <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+        <div class="row gy-4 justify-content-center align-items-center">
+          <div class="col-lg-6 position-relative mx-auto" data-aos="zoom-out">
             <img src="assets/img/img_sq_1.jpg" alt="Image" class="img-fluid">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn">
+            <a href="#" class="pulsating-play-btn" data-bs-toggle="modal" data-bs-target="#comingSoonModal"
+              aria-label="Fenetre bientot disponible">
               <span class="play"><i class="bi bi-play-fill"></i></span>
             </a>
           </div>
-          <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+          <!-- <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
             <h2 class="content-title mb-4">Nos Plantes, Votre Assiette : La Bonne Vie Commence avec le Manioc et la
               Chikwangue.</h2>
             <p class="mb-4">
@@ -148,20 +372,39 @@
               <!-- <li>Autonomisation des femmes et des familles</li>
               <li>Gardiens de la qualité et de la tradition</li>
               <li>Dévouement et résilience communautaire</li> -->
-            </ul>
+          </ul>
 
-            <p><a href="contact.html" class="btn-cta">Entrer en contact</a></p>
+          <!-- <p><a href="contact.html" class="btn-cta">Entrer en contact</a></p> -->
+        </div>
+      </div>
+      </div>
+    </section><!-- /About 3 Section -->
+
+    <!-- Coming Soon Modal -->
+    <div class="modal fade coming-soon-modal" id="comingSoonModal" tabindex="-1" aria-labelledby="comingSoonModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="coming-soon-icon" aria-hidden="true">
+              <i class="bi bi-hourglass-split"></i>
+            </div>
+            <h3 class="coming-soon-title" id="comingSoonModalLabel">Bientot disponible</h3>
+            <p class="coming-soon-text">Cette video sera bientot disponible. Merci pour votre patience.</p>
+            <button type="button" class="btn btn-light mt-4 px-4" data-bs-dismiss="modal">Fermer</button>
           </div>
         </div>
       </div>
-    </section><!-- /About 3 Section -->
+    </div>
 
     <!-- Team Section -->
     <section class="team-15 team section" id="team">
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Notre Équipe</h2>
-        <b><p>Management Committee</p></b>
+        <b>
+          <p>Management Committee</p>
+        </b>
       </div><!-- End Section Title -->
 
       <div class="content">
@@ -218,7 +461,7 @@
                 </div>
               </div>
             </div>
-<!-- 
+            <!-- 
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="person">
                 <figure>
@@ -237,11 +480,13 @@
             </div> -->
 
           </div>
-           <div class="row justify-content-center">
+          <div class="row justify-content-center">
             <div class="container section-title" data-aos="fade-up">
-        <!-- <h2>Notre Équipe</h2> -->
-        <b><p>Control and Verification Commission</p></b>
-      </div><!-- End Section Title -->
+              <!-- <h2>Notre Équipe</h2> -->
+              <b>
+                <p>Control and Verification Commission</p>
+              </b>
+            </div><!-- End Section Title -->
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="person">
                 <figure>
@@ -549,6 +794,53 @@
       </div>
     </section><!-- /Services Section -->
 
+    <!-- Partners Section -->
+    <section id="partners" class="section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="bounce-in">Nos partenaires</h2>
+        <p class="fade-in-up" style="font-size: 20px;">
+          Nous collaborons avec des institutions et organisations engagees pour renforcer notre impact local.
+        </p>
+      </div>
+
+      <div class="container partners-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4 justify-content-center">
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="partner-logo">
+              <img src="assets/img/partners/minagri_4-logo.png" alt="Partenaire Minagri" loading="lazy">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="partner-logo">
+              <img src="assets/img/partners/OIP-7.jpg" alt="Partenaire OIP" loading="lazy">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="partner-logo">
+              <img src="assets/img/partners/R (1).png" alt="Partenaire R 1" loading="lazy">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="partner-logo partner-with-caption">
+              <img src="assets/img/partners/R-1.png" alt="Partenaire R 2" loading="lazy">
+                <h3>Ambassade de la République Fédérale d'Allemagne en République du Congo</h3>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="partner-logo partner-with-caption">
+              <img src="assets/img/partners/R.png" alt="Partenaire R" loading="lazy">
+              <h3>Concertation Nationale des Organisations Paysannes</h3>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="partner-logo partner-text-square">
+              Projet de Développement Intégré des chaînes de Valeurs Agricoles (PRODIVAC)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Partners Section -->
+
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section light-background">
 
@@ -624,7 +916,7 @@
             </ul>
           </div>
 
-           <div class="col-lg-2 col-md-3 footer-links">
+          <div class="col-lg-2 col-md-3 footer-links">
             <h4>Activities</h4>
             <ul>
               <li><a href="blog.php">Blog</a></li>

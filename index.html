@@ -117,6 +117,59 @@
       color: var(--accent-color);
       font-weight: bold;
     }
+
+    /* About-3 coming soon popup */
+    .coming-soon-modal .modal-content {
+      border: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0d2f1f 0%, #1f5a35 55%, #2e8451 100%);
+      color: #fff;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .coming-soon-modal .modal-body {
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .coming-soon-icon {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      animation: pulseRing 1.8s ease-in-out infinite;
+    }
+
+    .coming-soon-title {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .coming-soon-text {
+      margin: 0 auto;
+      max-width: 320px;
+      opacity: 0.92;
+    }
+
+    @keyframes pulseRing {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
   </style>
 
 </head>
@@ -591,33 +644,48 @@
     <section id="about-3" class="about-3 section">
 
       <div class="container">
-        <div class="row gy-4 justify-content-between align-items-center">
-          <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+        <div class="row gy-4 justify-content-center align-items-center">
+          <div class="col-lg-6 position-relative mx-auto" data-aos="zoom-out">
             <img src="assets/img/img_sq_1.jpg" alt="Image" class="img-fluid">
-            <a href="#" class="glightbox pulsating-play-btn">
+            <a href="#" class="pulsating-play-btn" data-bs-toggle="modal" data-bs-target="#comingSoonModal" aria-label="Fenetre bientot disponible">
               <span class="play"><i class="bi bi-play-fill"></i></span>
             </a>
           </div>
-          <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-            <h2 class="content-title mb-4">Nos Plantes, Votre Assiette : La Bonne Vie Commence avec le Manioc et la
-              Chikwangue.</h2>
+          <!-- <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="content-title mb-4">Nos Plantes, Votre Assiette : La Bonne Vie Commence avec le Manioc et la Chikwangue.</h2>
             <p class="mb-4">
               Derrière chaque racine de manioc et chaque bâton de chikwangue se trouve la force inébranlable de la
               Coopérative des Femmes d'Ignié de notre dame du perpétuel secours (CooFI). Notre équipe dévouée cultive,
               transforme et distribue l'excellence pour enrichir vos tables et bâtir un avenir meilleur, main dans la
               main avec la terre.
             </p>
-            <!-- <ul class="list-unstyled list-check">
+            <ul class="list-unstyled list-check">
               <li>Autonomisation des femmes et des familles</li>
               <li>Gardiens de la qualité et de la tradition</li>
               <li>Dévouement et résilience communautaire</li>
-            </ul> -->
+            </ul>
 
             <p><a href="contact.html" class="btn-cta">Entrer en contact</a></p>
-          </div>
+          </div> -->
         </div>
       </div>
     </section><!-- /About 3 Section -->
+
+    <!-- Coming Soon Modal -->
+    <div class="modal fade coming-soon-modal" id="comingSoonModal" tabindex="-1" aria-labelledby="comingSoonModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="coming-soon-icon" aria-hidden="true">
+              <i class="bi bi-hourglass-split"></i>
+            </div>
+            <h3 class="coming-soon-title" id="comingSoonModalLabel">Bientot disponible</h3>
+            <p class="coming-soon-text">Cette video sera bientot disponible. Merci pour votre patience.</p>
+            <button type="button" class="btn btn-light mt-4 px-4" data-bs-dismiss="modal">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Services 2 Section -->
     <section id="services-2" class="services-2 section dark-background">
