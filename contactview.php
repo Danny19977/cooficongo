@@ -7,28 +7,28 @@ $userRole = $_SESSION['role'] ?? 'Guest';
 // Fetch user profile picture if logged in
 $userProfilePic = 'assets/img/team/team-1.jpg'; // Default
 if (isset($_SESSION['user_uuid'])) {
-    // Create new connection for profile picture
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "cooficongo";
+    try {
+        require_once 'php/connection.php';
+        if (!isset($conn) || !($conn instanceof mysqli)) {
+            throw new RuntimeException('Database connection unavailable');
+        }
 
-    $pic_conn = new mysqli($servername, $username, $password, $dbname);
-
-    if (!$pic_conn->connect_error) {
         $user_uuid = $_SESSION['user_uuid'];
         $pic_sql = "SELECT profile_picture FROM users WHERE uuid = ?";
-        $pic_stmt = $pic_conn->prepare($pic_sql);
-        $pic_stmt->bind_param("s", $user_uuid);
-        $pic_stmt->execute();
-        $pic_result = $pic_stmt->get_result();
-        if ($pic_row = $pic_result->fetch_assoc()) {
-            if (!empty($pic_row['profile_picture'])) {
-                $userProfilePic = $pic_row['profile_picture'];
+        $pic_stmt = $conn->prepare($pic_sql);
+        if ($pic_stmt) {
+            $pic_stmt->bind_param("s", $user_uuid);
+            $pic_stmt->execute();
+            $pic_result = $pic_stmt->get_result();
+            if ($pic_row = $pic_result->fetch_assoc()) {
+                if (!empty($pic_row['profile_picture'])) {
+                    $userProfilePic = $pic_row['profile_picture'];
+                }
             }
+            $pic_stmt->close();
         }
-        $pic_stmt->close();
-        $pic_conn->close();
+    } catch (Throwable $e) {
+        // Keep default avatar when user/profile table is unavailable.
     }
 }
 ?>

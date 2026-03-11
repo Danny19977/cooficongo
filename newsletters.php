@@ -4,15 +4,29 @@ require_once __DIR__ . '/php/auth_check.php';
 require_once 'php/newsletter.php';
 
 // Get all newsletter emails
-$emails = getAllNewsletterEmails($conn);
-$stats = getNewsletterStats($conn);
+$emails = [];
+$stats = ['total' => 0, 'active' => 0, 'today' => 0];
+try {
+    if ($conn instanceof mysqli) {
+        $emails = getAllNewsletterEmails($conn);
+        $stats = getNewsletterStats($conn);
+    }
+} catch (Throwable $e) {
+    // Keep defaults so page can still render.
+}
 
 // Handle delete request
 if (isset($_POST['delete_id'])) {
-    $result = deleteNewsletterEmail($conn, $_POST['delete_id']);
-    if ($result['success']) {
-        header("Location: newsletters.php?success=deleted");
-        exit();
+    try {
+        if ($conn instanceof mysqli) {
+            $result = deleteNewsletterEmail($conn, $_POST['delete_id']);
+            if ($result['success']) {
+                header("Location: newsletters.php?success=deleted");
+                exit();
+            }
+        }
+    } catch (Throwable $e) {
+        // Silently fail on delete when DB is unavailable.
     }
 }
 ?>

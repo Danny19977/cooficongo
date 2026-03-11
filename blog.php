@@ -475,7 +475,7 @@
               <li><a href="activity.php">Our Activities</a></li>
               <li><a href="contact.html">Contact</a></li>
               <li><a href="donation.html">Donate</a></li>
-              <li><a href="login.html">login</a></li>
+              <li><a href="Login.html">login</a></li>
             </ul>
           </div>
 

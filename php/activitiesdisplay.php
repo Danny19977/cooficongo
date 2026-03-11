@@ -1,8 +1,14 @@
 <?php
 // activitiesdisplay.php
-require_once 'connection.php';
+$conn = null;
+try {
+    require_once 'connection.php';
+} catch (Throwable $e) {
+    $conn = null;
+}
 
 $activitiesPosts = [];
+$locations = [];
 $stats = [
     'total_events' => 0,
     'upcoming' => 0,
@@ -10,6 +16,10 @@ $stats = [
 ];
 
 try {
+    if (!($conn instanceof mysqli)) {
+        throw new RuntimeException('Database connection unavailable');
+    }
+
     $sql = "SELECT uuid, user_uuid, title, image, image_2, image_3, image_4, image_5, summary, description, activity_date, location, created_at, updated_at 
             FROM activitiespost 
             ORDER BY activity_date DESC, created_at DESC";
@@ -32,21 +42,21 @@ try {
             $stats['past']++;
         }
     }
-} catch (Exception $e) {
-    // handle error
-}
-
-// Fetch all unique locations with event counts
-$locations = [];
-$loc_sql = "SELECT location, COUNT(*) as count FROM activitiespost GROUP BY location ORDER BY location ASC";
-$loc_result = $conn->query($loc_sql);
-if ($loc_result && $loc_result->num_rows > 0) {
-    while($loc_row = $loc_result->fetch_assoc()) {
-        $locations[] = $loc_row;
+    // Fetch all unique locations with event counts
+    $loc_sql = "SELECT location, COUNT(*) as count FROM activitiespost GROUP BY location ORDER BY location ASC";
+    $loc_result = $conn->query($loc_sql);
+    if ($loc_result && $loc_result->num_rows > 0) {
+        while($loc_row = $loc_result->fetch_assoc()) {
+            $locations[] = $loc_row;
+        }
     }
+} catch (Throwable $e) {
+    // Keep defaults so page can still render when DB/schema is unavailable.
 }
 
-$conn->close();
+if ($conn instanceof mysqli) {
+    $conn->close();
+}
 
 // Return JSON response if requested
 if (isset($_GET['json']) && $_GET['json'] == 'true') {

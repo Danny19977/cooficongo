@@ -1,6 +1,11 @@
 <?php
 // gallerydisplay.php - Fetch and display gallery items
-require_once 'connection.php';
+$conn = null;
+try {
+    require_once 'connection.php';
+} catch (Throwable $e) {
+    $conn = null;
+}
 
 // Fetch gallery items
 $galleries = [];
@@ -11,28 +16,36 @@ $stats = [
 ];
 
 // Get all gallery items ordered by creation date (newest first)
-$sql = "SELECT * FROM gallery ORDER BY created_at DESC";
-$result = $conn->query($sql);
-
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $galleries[] = $row;
-        
-        // Count images (check for non-empty strings)
-        for ($i = 1; $i <= 10; $i++) {
-            if (!empty($row['image_' . $i]) && $row['image_' . $i] !== '') {
-                $stats['total_images']++;
-            }
-        }
-        
-        // Count videos (check for non-empty strings)
-        for ($i = 1; $i <= 10; $i++) {
-            if (!empty($row['video_' . $i]) && $row['video_' . $i] !== '') {
-                $stats['total_videos']++;
-            }
-        }
+try {
+    if (!($conn instanceof mysqli)) {
+        throw new RuntimeException('Database connection unavailable');
     }
-    $stats['total_galleries'] = count($galleries);
+
+    $sql = "SELECT * FROM gallery ORDER BY created_at DESC";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $galleries[] = $row;
+
+            // Count images (check for non-empty strings)
+            for ($i = 1; $i <= 10; $i++) {
+                if (!empty($row['image_' . $i]) && $row['image_' . $i] !== '') {
+                    $stats['total_images']++;
+                }
+            }
+
+            // Count videos (check for non-empty strings)
+            for ($i = 1; $i <= 10; $i++) {
+                if (!empty($row['video_' . $i]) && $row['video_' . $i] !== '') {
+                    $stats['total_videos']++;
+                }
+            }
+        }
+        $stats['total_galleries'] = count($galleries);
+    }
+} catch (Throwable $e) {
+    // Keep defaults so page can still render when DB/schema is unavailable.
 }
 
 // Check if JSON response is requested (for AJAX calls from gallery.html)
@@ -43,9 +56,13 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) || (isset($_GET['format']) && $_GET
         'galleries' => $galleries,
         'stats' => $stats
     ]);
-    $conn->close();
+    if ($conn instanceof mysqli) {
+        $conn->close();
+    }
     exit();
 }
 
-$conn->close();
+if ($conn instanceof mysqli) {
+    $conn->close();
+}
 ?>

@@ -1,9 +1,15 @@
 <?php
 // Include database connection
-require_once 'connection.php';
+$conn = null;
+try {
+    require_once 'connection.php';
+} catch (Throwable $e) {
+    $conn = null;
+}
 
 // Function to create newsletter_emails table if it doesn't exist
 function createNewsletterTable($conn) {
+    if (!($conn instanceof mysqli)) return false;
     $sql = "CREATE TABLE IF NOT EXISTS newsletter_emails (
         id INT AUTO_INCREMENT PRIMARY KEY,
         email VARCHAR(255) NOT NULL UNIQUE,
@@ -16,6 +22,7 @@ function createNewsletterTable($conn) {
 
 // Function to save email to database
 function saveNewsletterEmail($conn, $email) {
+    if (!($conn instanceof mysqli)) return ['success' => false, 'message' => 'Database unavailable'];
     // First ensure table exists
     createNewsletterTable($conn);
     
@@ -50,6 +57,7 @@ function saveNewsletterEmail($conn, $email) {
 
 // Function to get all newsletter emails
 function getAllNewsletterEmails($conn) {
+    if (!($conn instanceof mysqli)) return [];
     createNewsletterTable($conn);
     
     $sql = "SELECT id, email, subscribed_date, status FROM newsletter_emails ORDER BY subscribed_date DESC";
@@ -67,6 +75,7 @@ function getAllNewsletterEmails($conn) {
 
 // Function to delete newsletter email
 function deleteNewsletterEmail($conn, $id) {
+    if (!($conn instanceof mysqli)) return ['success' => false, 'message' => 'Database unavailable'];
     $stmt = $conn->prepare("DELETE FROM newsletter_emails WHERE id = ?");
     $stmt->bind_param("i", $id);
     
@@ -85,6 +94,7 @@ function deleteNewsletterEmail($conn, $id) {
 
 // Function to get newsletter statistics
 function getNewsletterStats($conn) {
+    if (!($conn instanceof mysqli)) return ['total' => 0, 'active' => 0, 'today' => 0];
     createNewsletterTable($conn);
     
     $stats = [
