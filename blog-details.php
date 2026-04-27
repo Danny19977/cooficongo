@@ -122,7 +122,7 @@ if (!$post) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -149,9 +149,9 @@ if (!$post) {
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <script src="assets/js/i18n.js" defer></script>
 
   <style>
-    /* Blog Details Enhancements */
     .article {
       animation: fadeIn 0.8s ease-out;
     }
@@ -449,38 +449,68 @@ if (!$post) {
         <img src="assets/img/logo.png" alt="CooFICongo" width="200" height="400">
       </a>
 
-      <nav id="navmenu" class="navmenu stagger-animation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
-          <li><a href="blog.php">Blog</a></li>
-          <li><a href="activity.php">Activities</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html"><span data-i18n="nav.home">Accueil</span></a></li>
+          <li><a href="about.html"><span data-i18n="nav.about">À propos</span></a></li>
+          <li><a href="services.html"><span data-i18n="nav.services">Nous Faisons</span></a></li>
+          <!-- <li><a href="testimonials.html"><span data-i18n="nav.testimonials">Témoignages</span></a></li> -->
+          <li><a href="blog.php" class="active"><span data-i18n="nav.blog">Blog</span></a></li>
+          <li><a href="activity.php"><span data-i18n="nav.activities">Activités</span></a></li>
+          <li><a href="contact.html"><span data-i18n="nav.contact">Contact</span></a></li>
+          <li><a href="donation.html" class="btn-donate-nav"><span data-i18n="nav.donate">Faire un don</span></a></li>
+          <li class="dropdown language-dropdown">
+            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-translate me-1"></i><span data-i18n="lang.current">Français</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+              <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
             </ul>
-          </li> -->
-          <li><a href="contact.html">Contact</a></li>
+          </li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="btn d-lg-none" type="button" data-bs-toggle="modal" data-bs-target="#navbarModal" aria-label="Toggle mobile menu">
+        <i class="bi bi-list" style="font-size: 32px; color: var(--nav-color);"></i>
+      </button>
 
     </div>
   </header>
+
+  <!-- Bootstrap Modal for Mobile Navigation -->
+  <div class="modal fade" id="navbarModal" tabindex="-1" aria-labelledby="navbarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="navbarModalLabel">
+            <img src="assets/img/logo.png" alt="CooFICongo" style="height: 40px;">
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <nav class="mobile-nav-menu">
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-house-door me-2"></i><span data-i18n="nav.home">Accueil</span></a></li>
+              <li><a href="about.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-info-circle me-2"></i><span data-i18n="nav.about">À propos</span></a></li>
+              <li><a href="services.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-gear me-2"></i><span data-i18n="nav.services">Nous Faisons</span></a></li>
+              <li><a href="blog.php" class="mobile-nav-link active" data-bs-dismiss="modal"><i class="bi bi-journal-text me-2"></i><span data-i18n="nav.blog">Blog</span></a></li>
+              <li><a href="activity.php" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-calendar-event me-2"></i><span data-i18n="nav.activities">Activités</span></a></li>
+              <li><a href="contact.html" class="mobile-nav-link" data-bs-dismiss="modal"><i class="bi bi-envelope me-2"></i><span data-i18n="nav.contact">Contact</span></a></li>
+              <li><a href="donation.html" class="mobile-nav-link btn-donate-mobile" data-bs-dismiss="modal"><i class="bi bi-heart me-2"></i><span data-i18n="nav.donate">Faire un don</span></a></li>
+            </ul>
+            <div class="mt-4">
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-lang="fr">Français</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-lang="en">English</button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main class="main">
 
@@ -491,8 +521,8 @@ if (!$post) {
         <p><?php echo htmlspecialchars($post['title']); ?></p>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blog.php">Blog</a></li>
+            <li><a href="index.html" data-i18n="breadcrumbs.home">Accueil</a></li>
+            <li><a href="blog.php" data-i18n="nav.blog">Blog</a></li>
             <li class="current">Blog Details</li>
           </ol>
         </nav>
@@ -757,10 +787,10 @@ if (!$post) {
 
     <div class="footer-top">
       <div class="container">
-        <div class="row gy-4">
+        <div class="row gy-4 stagger-animation">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">CooFICongo</span>
+              <span class="sitename">COOFICONGO</span>
             </a>
             <div class="footer-contact pt-3">
               <p>Paroisse Notre Dame du Perpétuel Secours, </p>
@@ -772,17 +802,18 @@ if (!$post) {
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4 data-i18n="footer.useful_links">Liens utiles</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About us</a></li>
-              <li><a href="services.html">Services</a></li>
+              <li><a href="index.html" data-i18n="footer.home">Accueil</a></li>
+              <li><a href="about.html" data-i18n="footer.about">À propos</a></li>
+              <li><a href="services.html" data-i18n="footer.services">Nous Faisons</a></li>
               <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
+              <!-- <li><a href="#">Privacy policy</a></li> -->
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Ce que nous faisons</h4>
+            <h4 data-i18n="footer.what_we_do">Ce que nous faisons</h4>
             <ul>
               <li><a href="our_service_info.html#production-only">Plantation</a></li>
               <li><a href="our_service_info.html#transformation-manioc">Transformation du manioc en chikwangue</a></li>
@@ -793,12 +824,12 @@ if (!$post) {
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Activities</h4>
+            <h4 data-i18n="footer.activities">Activités</h4>
             <ul>
-              <li><a href="blog.php">Blog</a></li>
-              <li><a href="activity.php">Our Activities</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="donation.html">Donate</a></li>
+              <li><a href="blog.php" data-i18n="footer.blog">Blog</a></li>
+              <li><a href="activity.php" data-i18n="footer.our_activities">Nos activités</a></li>
+              <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
+              <li><a href="donation.html" data-i18n="footer.donate">Faire un don</a></li>
             </ul>
           </div>
 
@@ -811,9 +842,13 @@ if (!$post) {
 
         <div class="d-flex flex-column align-items-center align-items-lg-start">
           <div>
-            © Copyright <strong><span>CooFICongo</span></strong>. All Rights Reserved
+            © Copyright <strong><span>FreelanceSolutions</span></strong>. All Rights Reserved
           </div>
           <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
             Designed by <a href="https://freelancesoutions.vercel.app/">FREELANCE SOLUTIONS</a> Distributed by <a href="https://freelancesoutions.vercel.app/">FS</a>
           </div>
         </div>
